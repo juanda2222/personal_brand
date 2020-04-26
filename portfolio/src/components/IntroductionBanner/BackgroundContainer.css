@@ -1,0 +1,24 @@
+.custom_header_container {
+  height:100vh;
+  width:100vw;
+  /*position: absolute;*/
+  /*top: calc(- 7% / 2);*/
+  background-image: url("../../assets/cpu_image.jpg");
+  background-size: cover ;
+  /*width: 100px;*/
+  /*position:relative;*/
+  
+
+  
+}
+
+.darkener_layer{
+  background-color: rgba(0, 0, 0, 0.6);  
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  
+}

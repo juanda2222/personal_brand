@@ -1,0 +1,72 @@
+
+
+#projects_banner_pointer{
+  position:relative; 
+  top:-58px;
+}
+
+
+.proyects_container {
+  background-color: rgb(54, 54, 54);
+  color: azure;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "tittle tittle"
+                        "project project"
+  ;
+}
+
+div.tittle{
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  width: 100vw; 
+  padding: 4% 0 4% 0;
+  grid-area: tittle;
+  
+  background-color:rgb(29, 29, 29);
+
+}
+
+.tittle p{
+  line-height:26px;
+  font-size: 18px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  max-width: 80%;
+
+  text-align: justify;
+  color: rgb(182, 182, 182);
+}
+
+.project{
+  grid-area: project;
+}
+
+
+
+.proyects_container .proyect_container:nth-child(2n) {background-color: rgb(54, 54, 54);}
+.proyects_container .proyect_container:nth-child(2n+1){background-color: #2B2B2B;}
+
+
+/*when the screen is smalllimit size:*/
+@media (max-width: 1350px) {
+  .proyects_container{
+    grid-template-columns: 1fr;
+    grid-template-areas: "tittle"
+                        "project";
+  }
+}
+
+/*when the screen is smalllimit size:*/
+@media (min-width: 2250px) {
+  .proyects_container{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "tittle tittle tittle" 
+                         "project project project";
+    
+  }
+}

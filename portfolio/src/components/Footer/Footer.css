@@ -1,0 +1,119 @@
+
+
+#footer_pointer{
+  position:relative; 
+  top:-58px;
+}
+
+
+div.footer_container {
+  color: rgb(194, 194, 194);
+  background-color: rgb(29, 29, 29);
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+div.footer_container hr.blue_bar {
+  border: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.3), #ebeeee, rgba(0,0,0,0.3));
+  background-image: -moz-linear-gradient(left,  rgba(0,0,0,0.3), #ebeeee, rgba(0,0,0,0.3));
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0.3), #ebeeee, rgba(0,0,0,0.3));
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0.3), #ebeeee, rgba(0,0,0,0.3));
+}
+
+
+
+
+
+
+
+div.footer_columns {
+  padding: 0 8vw 5vh 8vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "about auto auto";
+}
+ 
+div.footer_columns div.items_column {
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  padding: 0 4vw 0 4vw;
+}
+
+
+div.footer_columns div.items_column p,
+div.footer_columns div.about_colunm p
+{
+  text-align: justify;
+  margin: 5px 20px 5px 20px;
+  color: rgb(194, 194, 194);
+}
+div.footer_columns div.items_column a,
+div.footer_columns div.about_colunm a{
+  text-decoration: none;
+}
+div.footer_columns div.items_column p:hover,
+div.footer_columns div.about_colunm p:hover{
+  color: #B29E47;
+}
+
+
+div.footer_columns div.about_column {
+  
+  grid-area: about;
+  
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4vw 0 4vw;
+}
+
+
+
+/*
+
+.tittle p{
+  line-height:26px;
+  font-size: 18px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  max-width: 80%;
+
+  text-align: justify;
+  color: rgb(182, 182, 182);
+}
+
+.project{
+  grid-area: project;
+}
+
+*/
+
+.proyects_container .proyect_container:nth-child(2n) {background-color: rgb(54, 54, 54);}
+.proyects_container .proyect_container:nth-child(2n+1){background-color: #2B2B2B;}
+
+
+/*when the screen is smalllimit size:*/
+@media (max-width: 720px) {
+  div.footer_columns{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "about about"
+                        "auto auto";
+  }
+  div.about_column {
+    padding: 0 12vw 0 12vw;
+  }
+}
+

@@ -1,0 +1,26 @@
+
+
+
+
+
+div.zoom_image_div .img {
+  cursor: zoom-in;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+}
+
+div.zoom_image_div .img.zoomed {
+  cursor: zoom-out;
+}
+
+div.zoom_image_div .behind {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateZ(0);
+}

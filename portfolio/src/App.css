@@ -1,0 +1,59 @@
+
+html {
+  scroll-behavior: smooth;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+
+  font-family: 'opensans', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon{
+  
+  color: white;
+  fill: white;
+  width: 35px;
+  height: auto;
+  margin: 5px 5px 5px 5px;
+
+  -webkit-transition: fill .3s ease-in-out;
+  -moz-transition: fill .3s ease-in-out;
+  -o-transition: fill .3s ease-in-out;
+  -ms-transition: fill .3s ease-in-out;
+  transition: fill .3s ease-in-out;
+}
+
+div.full_window {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.centered{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover{
+  fill: #B29E47;;
+}
+
+
+:root{
+  height: 100%;
+}

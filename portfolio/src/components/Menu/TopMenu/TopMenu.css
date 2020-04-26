@@ -1,0 +1,91 @@
+
+
+.top_menu {
+  /*to fix the menu*/
+  position: fixed;
+  z-index: 100;
+  top: 0;
+
+  
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: unset;
+  padding: 0.7rem 0.5rem 0.7rem 0.5rem; 
+  
+  
+  background: rgba(0, 0, 0, 0);
+  
+  
+
+  /*to compatibility issues*/
+  -webkit-transition: background .3s ease-in-out;
+	-moz-transition: background .3s ease-in-out;
+	-o-transition: background .3s ease-in-out;
+	-ms-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+  
+  -webkit-transition: opacity .3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out;
+	-ms-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
+}
+
+/*to animate the menu:*/
+.transparent{
+  opacity: 0;
+}
+.mate{
+  background-color: #333;
+}
+
+
+
+
+
+
+.menu_items_wraper ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.menu_items_wraper li a {
+  display: block;
+  color: white;
+  /*display: block;*/
+  padding: 0.7rem 0.5rem 0.7rem 0.5rem; 
+  text-decoration: none;
+}
+
+.menu_items_wraper a:hover,
+.menu_items_wraper a:active,
+.menu_items_wraper a.active{
+  color: #B29E47;
+}
+
+
+
+
+
+/*when the screen is to little show the button and orginize them left*/
+@media (max-width: 620px) {
+  .menu_items_wraper {
+    display: none;
+  }
+  .top_menu {
+    justify-content: left;
+  }
+}
+
+/*hide the menu button hwn small*/
+@media (min-width: 620px) {
+  .toggle_button {
+    display: none;
+  }
+}

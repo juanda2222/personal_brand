@@ -1,0 +1,59 @@
+.text_wraper{
+    text-align: center;
+    width: 60%;
+    color: #fff;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+    font-family: 'opensans-bold', sans-serif;
+}
+
+.text_wraper h1 {
+    font-size: calc(3vw + 10px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin: 0 auto 18px auto;
+}
+
+.text_wraper h3 {
+    font-size: calc(1vw/1.1 + 5px );
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin: 0 auto 30px auto;
+}
+
+
+
+hr.bar_style {
+    border: 0;
+    width: 80%;
+    height: 2px;
+    background: transparent;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.3), #fff, rgba(0,0,0,0.3));
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0.3), #fff, rgba(0,0,0,0.3));
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0.3), #fff, rgba(0,0,0,0.3));
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0.3), #fff, rgba(0,0,0,0.3));
+}
+
+
+
+.social_icons{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+
+
+
+/*when the screen is big limit size:*/
+@media (min-width: 1920px) {
+    .text_wraper h1{font-size: 60px;}
+    .text_wraper h3{font-size: 22px;}
+  }
+  
+/*when the screen is smalllimit size:*/
+@media (max-width: 620px) {
+    .text_wraper h1{font-size: 42px;}
+    .text_wraper h3{font-size: 16px;}
+}

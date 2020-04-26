@@ -1,0 +1,83 @@
+
+
+
+
+.skills_container{
+    /*height: 40vh;*/
+    width: 100vw;
+    background-color: white;
+    
+    padding: 8% 0 8% 0;
+    /*margin: 0 0 0 0;*/
+
+
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+div.skills_tittle {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    
+}
+
+div.skills_tittle h1{
+
+    font-size: calc(2.6vh + 10px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+}
+
+.skills_tittle hr {
+    border: 0;
+    width: 50vw;
+    height: 2px;
+    background: transparent;
+    background-image: -webkit-linear-gradient(left, #fff, rgba(0,0,0,0.3), #fff);
+    background-image: -moz-linear-gradient(left, #fff, rgba(0,0,0,0.3), #fff);
+    background-image: -ms-linear-gradient(left, #fff, rgba(0,0,0,0.3), #fff);
+    background-image: -o-linear-gradient(left, #fff, rgba(0,0,0,0.3), #fff);
+}
+
+
+
+
+div.bar_wrapper{
+    
+    /*border: 1px solid;*/
+    border-radius: 8px;
+    border-color: rgb(46, 46, 46);
+    margin: 6px 3px 6px 3px;
+
+    height: 38px;
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+
+    display: flex;
+    flex:1;
+
+}
+
+span.bar{
+
+    border-radius: 6px;
+    border-color: rgb(46, 46, 46);
+
+    height: 100%;
+    display: block;
+    
+    background-color: rgb(4, 86, 163);
+    transition: background 0.3s ease-in-out;
+
+}
