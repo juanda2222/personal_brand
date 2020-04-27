@@ -5,7 +5,7 @@ const pageInfo = {
         name:"Juan David Ramirez V.",
         short_introduction:"Developer and tech hobbyst with self learning habbits and leadership capabilitys. 1+ years experience. Direct responsible for successfully launch end to end applications for 3 clients.",
         
-        sourceCode_link:"google.com",
+        issues_link:"https://github.com/juanda2222/personal_brand",
 
         github_link:"https://github.com/juanda2222",
         behance_link:"https://www.behance.net/juandaramirez3",

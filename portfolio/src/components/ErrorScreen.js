@@ -5,7 +5,6 @@ import animated_robot from '../assets/robot-animated.gif'
 
 import { MdError } from 'react-icons/md';
 
-import "./ErrorScreen.css"
 
 
 const styles = {

@@ -18,8 +18,8 @@ class HomeScreen extends Component {
         <Menu i_active={0}/>
         <IntroductionBanner/>
         <ProjectsBanner/>
-        <SkillsBanner/>
         <AboutBanner/>
+        <SkillsBanner/>
         <Footer/>
       </div>
       

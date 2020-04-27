@@ -49,16 +49,13 @@ const AboutBanner = props => {
                     </div>
                 </div>
                 <div className="about_download">
-                    <a 
-                        
+
+                    <BeautyButton 
                         href={page_info.english.resumee_file_url}  
-                        target="_blank" 
-                        >
-                        <BeautyButton >
-                            <FaDownload className="inline_icon"/>
-                            {page_info.english.Download_resumee_text}
-                        </BeautyButton>
-                    </a>
+                        target="_blank" >
+                        <FaDownload className="inline_icon"/>
+                        {page_info.english.Download_resumee_text}
+                    </BeautyButton>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
 	-webkit-transition: all 0.1s;
 }
 
-a.action-button
+.action-button
 {
 	/*position: relative;*/
 	float: left;
@@ -13,6 +13,7 @@ a.action-button
     margin: 10px 5px 2px 5px;
 	border-radius: 10px;
 	text-align: center;
+	text-decoration: none;
 	color: rgb(255, 255, 255);
 	background-color: transparent;
 	/*text-decoration: none;	*/
@@ -21,7 +22,7 @@ a.action-button
 	font-size: 18px;
 }
 
-a.action-button:active
+.action-button:active
 {
 	transform: translate(0px,5px);
   -webkit-transform: translate(0px,5px);
@@ -29,7 +30,7 @@ a.action-button:active
 	border-color: transparent;
 }
 
-a.blue
+.blue
 {
 	background-color: #146E8E;
 	border-bottom: 5px solid #0C445C;

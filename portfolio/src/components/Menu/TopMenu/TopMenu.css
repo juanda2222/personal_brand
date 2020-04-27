@@ -61,6 +61,7 @@
   /*display: block;*/
   padding: 0.7rem 0.5rem 0.7rem 0.5rem; 
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .menu_items_wraper a:hover,

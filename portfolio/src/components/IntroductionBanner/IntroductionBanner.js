@@ -24,7 +24,7 @@ class IntroductionBanner extends Component {
         
         return (
             <BackgroundContainer>
-                <div style={{height:"40px"}}></div>
+                <div style={{height:"40px"}}><span id="introduction_banner_pointer"></span></div>
                 <div className="text_wraper">
                     <h1>{header1}</h1>
                     <h3>{text1}</h3>

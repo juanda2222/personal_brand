@@ -14,7 +14,7 @@ class TopMenu extends React.Component {
     //console.log(window.scrollY)
 
 
-    //fix the fixed position
+    //Manage the state based on the scroll location
 
     //manage the color changing in the top menu bar
     if (window.scrollY <= 50) {

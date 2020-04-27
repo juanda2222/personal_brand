@@ -37,11 +37,17 @@ const Footer = props => {
                         Contact me
                     </p></Link>
                     
+                    <a href={page_info.english.issues_link} 
+                        target="_blank"
+                        alt="loading..">
                     <p>
                         Report issue
-                    </p>
+                    </p></a> 
+                    <Link to="/contact"><p>
+                        Contact me
+                    </p></Link>
                     <p>
-                        
+                        Live chat
                     </p>
                 </div>
                 <div className="items_column">
