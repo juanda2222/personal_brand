@@ -14,14 +14,13 @@ class HomeScreen extends Component {
   render() {
 
     return (
-      <div style={{flex:1}}>
-        <Menu i_active={0}/>
+      <div id="home_screen" style={{flex:1}}>
         <div><span id="top_pointer"></span></div>
+        <Menu i_active={0}/>
         <IntroductionBanner/>
         <ProjectsBanner/>
         <AboutBanner/>
         <SkillsBanner/>
-        <Footer/>
       </div>
       
     );

@@ -10,10 +10,10 @@ class ProyectsScreen extends Component {
     return (
       
       <div>
-        <Menu i_active={3}/>
+        <Menu i_active={4}/>
         <Section
-          id="Proyect 1"
-          title="Proyect 1"
+          id="Donate"
+          title="Donate"
         />
         <Section
           id="Proyect 2"

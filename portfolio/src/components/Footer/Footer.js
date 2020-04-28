@@ -43,12 +43,12 @@ const Footer = props => {
                     <p>
                         Report issue
                     </p></a> 
-                    <Link to="/contact"><p>
+                    <Link to="/contact/#top_pointer"><p>
                         Contact me
                     </p></Link>
-                    <p>
+                    <Link to="/live_chat"><p>
                         Live chat
-                    </p>
+                    </p></Link>
                 </div>
                 <div className="items_column">
                     <h3>

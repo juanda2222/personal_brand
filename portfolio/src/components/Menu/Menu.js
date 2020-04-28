@@ -18,24 +18,26 @@ class Menu extends Component {
   listenScrollEvent = e => {
     
     //the access the elements fails if the page containing them is not loaded:
-    if (document.getElementById("introduction_banner_pointer")) {
+    if (document.getElementById("home_screen")) {
 
-      let introduction_banner_offset = document.getElementById("introduction_banner_pointer").offsetTop;
+      let introduction_banner_offset = document.getElementById("home_screen").offsetTop;
       let projects_banner_offset = document.getElementById("projects_banner_pointer").offsetTop;
       let about_banner_offset = document.getElementById("about_banner_pointer").offsetTop;
+      let scroll_pos = window.scrollY
       //console.log(introduction_banner_offset )
       //console.log(projects_banner_offset )
-      //console.log(about_banner_offset )
-      //console.log(window.scrollY)
+      //console.log("about pos: "+about_banner_offset)
+      //console.log("scroll pos: "+scroll_pos)
+      
 
-      //change the menu aperance when scrolled between sections
-      if ((window.scrollY >= introduction_banner_offset) && (window.scrollY < projects_banner_offset)){
+      //change the menu aperance when scrolled between sections 58px is the he  ight of the tittle
+      if ((scroll_pos >= introduction_banner_offset) && (scroll_pos < projects_banner_offset)){
         this.setState({current_index: 0})
       
-      }else if ((window.scrollY >= projects_banner_offset-10) && (window.scrollY < about_banner_offset)){
+      }else if ((scroll_pos >= projects_banner_offset - 10) && (scroll_pos < about_banner_offset - 10)){
         this.setState({current_index: 1})
       
-      }else if (window.scrollY >= about_banner_offset-10){
+      }else if (scroll_pos >= about_banner_offset - 10){
         this.setState({current_index: 2})
       }
     }
@@ -45,9 +47,6 @@ class Menu extends Component {
     window.addEventListener('scroll', this.listenScrollEvent)
   }
 
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.listenScrollEvent)
-  }
 
   menuList = () => {
     let i = this.state.current_index 

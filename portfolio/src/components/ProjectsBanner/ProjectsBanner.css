@@ -1,6 +1,5 @@
 
-
-#projects_banner_pointer{
+span#projects_banner_pointer{
   position:relative; 
   top:-58px;
 }

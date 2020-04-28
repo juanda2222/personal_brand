@@ -17,7 +17,7 @@ class ContactScreen extends Component {
         <Menu i_active={3}/>
         <div><span id="top_pointer"></span></div>
         <ContactBanner/>
-        <Footer/>
+        <Footer/> 
       </div>
       
     );

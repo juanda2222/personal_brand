@@ -1,0 +1,177 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+
+
+# orbs:
+#   gcp-cli: circleci/gcp-cli@1.8.3
+
+
+
+version: 2
+
+jobs:
+
+  # -------------------- build job---------------------------
+  build:
+
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.15.0
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    # executor: gcp-cli/default
+
+    working_directory: ~/repo
+    
+    steps:
+      - checkout
+
+      # install google cloud sdk
+      # - run: sudo apt-get install -y apt-utils && sudo apt-get install -y curl 
+      # - run: sudo apt-get install lsb-release
+      # - run: echo export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" >> $BASH_ENV
+      # - run: echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+      # - run: curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - 
+      # - run: sudo apt-get install google-cloud-sdk -y
+
+      # Run a step to setup an environment variable:
+      - run: 
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export CI=true' >> $BASH_ENV # enable continous integration capabilities
+            echo 'export GENERATE_SOURCEMAP=false' >> $BASH_ENV # hide the source code from the deployed app
+            echo 'export TEST_ENV=test_value' >> $BASH_ENV  # test
+
+      # check a read of the env variables
+      - run:
+          name: "whats the content of the env variable?"
+          command: echo $TEST_ENV # prints: XXXXXXX
+
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+
+      # install google cloud sdk
+      # - run:  export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+      #         echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+      #         curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+      #         apt-get update -y && apt-get install google-cloud-sdk -y
+
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: yarn test
+
+      # run build:
+      - run: yarn build
+
+      # run deploy (not currently working)
+      # - run:
+      #     name: "Firebase Deploy, not currently working due to firebase thingy"
+      #     command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
+
+      # mantain the information to share it betw  een jobs
+      # - persist_to_workspace:
+      #     root: /repo
+
+      # with this predefined step we can se a log of what had happened
+      # - store_test_results:
+      #     path: build_results
+
+
+  # -------------------- deploy job---------------------------
+  deploy:
+
+    docker:
+      - image: google/cloud-sdk:251.0.0
+    
+    working_directory: ~/repo
+
+    steps:
+
+      # this command should stop the worckflow when the branch is diferent than master
+      # - run:
+      #   name: "Checking the branch"
+      #   command: |
+      #     if [ "$CIRCLE_BRANCH" != "master" ]; then
+      #         circleci-agent step halt # stop the process
+      #     fi
+
+
+      # add to this job the saved workspace (not needed)
+      # - attach_workspace:
+      #     at: ~/repo
+           
+      - run: 
+          name: "Configuring the GC credentials"
+          command: |
+            echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+       
+
+      # restore the data builded on the build job (node image)
+      # - attach_workspace:
+      #     at: /tmp/workspace
+
+      - checkout
+
+      # deploy the data on a scalable node container (described on the app.yaml)
+      - run:
+          name: "Deploying to Google App Engine"
+          command: gcloud app deploy ./app_default.yaml
+
+      # with this predefined step we can se a log of what had happened
+      # - store_test_results:
+      #     path: deploy_results
+
+
+
+# this is a generalized way to do the jobs
+workflows:
+  
+  version: 2
+
+  build-test-and-deploy:
+    
+    jobs:
+      
+      # excecute a build job everytime the build branch is commited
+      - build:
+      
+          filters:  # using regex filters requires the entire branch to match
+
+            # do the job only on master branch changes
+            branches:
+                only: 
+                  - build #this is the name of the branch
+                  - master 
+      
+
+      # excecute a build job everytime the master
+      - deploy:
+          requires:
+            - build
+
+          filters:  # using regex filters requires the entire branch to match
+              
+            # do the job only on master branch changes
+            branches:
+                only: master #this is the name of the branch  
