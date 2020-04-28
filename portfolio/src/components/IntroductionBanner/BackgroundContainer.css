@@ -1,8 +1,5 @@
 
-#home_pointer{
-  position:relative; 
-  top:-58px;
-}
+
 
 .custom_header_container {
   height:100vh;
@@ -12,7 +9,10 @@
   background-image: url("../../assets/cpu_image.jpg");
   background-size: cover ;
   /*width: 100px;*/
-  /*position:relative;*/
+  position:static;
+  top: 0;
+  z-index: 1;
+
   
 
   

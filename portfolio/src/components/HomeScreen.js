@@ -12,10 +12,11 @@ import Footer from "./Footer/Footer.js"
 class HomeScreen extends Component {
 
   render() {
+
     return (
-      
       <div style={{flex:1}}>
         <Menu i_active={0}/>
+        <div><span id="top_pointer"></span></div>
         <IntroductionBanner/>
         <ProjectsBanner/>
         <AboutBanner/>

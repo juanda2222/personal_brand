@@ -2,35 +2,26 @@ import React, { Component } from 'react';
 
 
 import Menu from './Menu/Menu.js';
-import Section from './Section/test.js';
+import Footer from "./Footer/Footer"
+import ContactBanner from "./ContactBanner/ContactBanner"
 
-class ProyectsScreen extends Component {
+
+
+
+class ContactScreen extends Component {
 
   render() {
     return (
       
-      <div>
+      <div style={{flex:1}}>
         <Menu i_active={3}/>
-        <Section
-          id="Proyect 1"
-          title="Proyect 1"
-        />
-        <Section
-          id="Proyect 2"
-          title="Proyect 2"
-        />
-        <Section
-          id="Proyect 3"
-          title="Proyect 3"
-        />
-        <Section
-          id="Proyect 4"
-          title="Proyect 4"
-        />
+        <div><span id="top_pointer"></span></div>
+        <ContactBanner/>
+        <Footer/>
       </div>
       
     );
   }
 }
 
-export default ProyectsScreen;
+export default ContactScreen;

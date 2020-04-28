@@ -13,7 +13,7 @@ const Footer = props => {
     <div>
         <span id="footer_pointer"></span>
         <div className="footer_container">
-            <a href="#projects_banner_pointer"
+            <a href="#top_pointer"
                 style={{padding:"20px 0 0 0"}}>
                 <IoIosArrowDropupCircle className="icon" />
             </a>

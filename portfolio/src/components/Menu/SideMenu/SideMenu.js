@@ -4,7 +4,7 @@ import './SideMenu.css';
 
 
 const SideMenu = (props) => {
-  console.log("rendering")
+  //console.log("rendering")
   let backdrop;
   if (props.show) {
     //this is the shadow that apears when the menu is opened
