@@ -18,7 +18,7 @@ class TopMenu extends React.Component {
     //console.log(window.scrollY)
 
 
-    if (this.props.animate == false){
+    if (this.props.animate === false){
       this.setState({ menu_classname: "top_menu mate" })//with mamte background
     } else { 
       //manage the color changing in the top menu bar
@@ -42,7 +42,7 @@ class TopMenu extends React.Component {
 
   render() {
     let menu_className;
-    if (this.props.animate == false){
+    if (this.props.animate === false){
       menu_className = "top_menu mate"
     }else{
       menu_className = this.state.menu_classname

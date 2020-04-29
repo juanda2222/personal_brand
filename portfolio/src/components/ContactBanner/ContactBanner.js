@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { 
+	//Component
+ } from 'react';
 import "./ContactBanner.css"
 import personal_logo from "../../assets/personal_logo.png"
 
@@ -15,24 +17,23 @@ class ContactBanner extends React.Component{
   	name: '',
   	email: '',
   	message: '',
-	
   }
 
   onNameChange = (event) => {
 	console.log((this!=="undefined"))
-	if (this!="undefined") {
+	if (this!=="undefined") {
 		this.setState({name: event.target.value})
 	}
   }
 
   onEmailChange = (event) => {
-	if (this!="undefined") {
+	if (this!=="undefined") {
 		this.setState({email: event.target.value})
 	}
   }
 
   onMessageChange = (event) => {
-	if (this!="undefined") {
+	if (this!=="undefined") {
 		this.setState({message: event.target.value})
 	}
   }
@@ -62,7 +63,8 @@ class ContactBanner extends React.Component{
 		<div className="darkener_container">
 			<div className="contact_grid">
 				
-				<div className="contact_text_container">									
+				<div className="contact_text_container">	
+					<img style={{width:"20%"}} src={personal_logo} alt="loading..."></img>								
 					<h1>
 						Contact me
 					</h1>
@@ -88,7 +90,7 @@ class ContactBanner extends React.Component{
 				</div>
 				<div className="centered">
 					<div className="contact_form_container">
-						<img style={{width:"20%"}} src={personal_logo} alt="loading..."></img>
+						
 						<p>
 							{pageInfo.english.contact_me_text2}
 						</p>

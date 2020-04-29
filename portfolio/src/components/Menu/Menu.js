@@ -44,31 +44,73 @@ class Menu extends Component {
   }
 
   componentDidMount() {
+
+    //renders the colors based on the url:
+    //console.log("href url: "+window.location.pathname)
+    let url = window.location.pathname
+    if (url.length === 1){
+      console.log("--- root in")
+      this.setState({current_index: 0})
+    }else if (url.includes("contact")){
+      console.log("--- contact in")
+      this.setState({current_index: 3})
+    } else if (url.includes("donate")){
+      console.log("--- donate in")
+      this.setState({current_index: 4})
+    } 
+
     window.addEventListener('scroll', this.listenScrollEvent)
   }
 
 
   menuList = () => {
     let i = this.state.current_index 
-    //console.log(i)
+
     return (
-    <ul id="menu_list" onClick={this.backdropClickHandler}>
+      <ul id="menu_list" onClick={this.backdropClickHandler}>
           
-      <li><Link className={i===0 ? "active" : ""} to="/#top_pointer">Home</Link></li>
-      <li><Link className={i===1 ? "active" : ""} to="/#projects_banner_pointer">Projects</Link></li>
-      <li><Link className={i===2 ? "active" : ""} to="/#about_banner_pointer">About</Link></li>
-      <li><Link className={i===3 ? "active" : ""} to="/contact/#top_pointer">Contact</Link></li>
-      <li><Link className={i===4 ? "active" : ""} to="/donate">Donate</Link></li>
+      <li><Link onClick={() => { this.setState({current_index: 0}) }} className={i===0 ? "active" : ""}
+         to="/#top_pointer">Home</Link></li>
+      <li><Link onClick={() => { this.setState({current_index: 1}) }} className={i===1 ? "active" : ""}
+         to="/#projects_banner_pointer">Projects</Link></li>
+      <li><Link onClick={() => { this.setState({current_index: 2}) }} className={i===2 ? "active" : ""}
+         to="/#about_banner_pointer">About</Link></li>
+      <li><Link onClick={() => { this.setState({current_index: 3}) }} className={i===3 ? "active" : ""}
+         to="/contact/#top_pointer">Contact</Link></li>
+      <li><Link onClick={() => { this.setState({current_index: 4}) }} className={i===4 ? "active" : ""}
+         to="/donate">Donate</Link></li>
       
     </ul>
   )}
+
+  /*<Nav
+        activeKey="/home"
+        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+      >
+        <Nav.Item>
+          <Nav.Link href="/home">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+    </Nav>*/
 
   render() {
     
     
     return (
       <div>
-        <TopMenu menuClickHandler={()=>{this.setState({sideMenuOpen: true})}}>
+        <TopMenu menuClickHandler={()=>{
+            this.setState({sideMenuOpen: true})
+          }}>
           {this.menuList()}
         </TopMenu>
         <SideMenu 

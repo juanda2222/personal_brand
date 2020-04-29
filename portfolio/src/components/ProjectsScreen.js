@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import Menu from './Menu/Menu.js';
+//import Menu from './Menu/Menu.js';
 import Section from './Section/test.js';
 
 class ProyectsScreen extends Component {
@@ -10,7 +10,6 @@ class ProyectsScreen extends Component {
     return (
       
       <div>
-        <Menu i_active={4}/>
         <Section
           id="Donate"
           title="Donate"

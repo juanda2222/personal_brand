@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component,  } from 'react';
 
 import './App.css';
 
-import {BrowserRouter, Route, Switch, Redirect, } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route, 
+  Switch, 
+  //Redirect, 
+} from 'react-router-dom';
 
 import HomeScreen from "./components/HomeScreen.js";
 import ProjectsScreen from "./components/ProjectsScreen.js";
@@ -15,22 +20,27 @@ import Menu from "./components/Menu/Menu"
 
 class App extends Component {
 
+  state = {
+    menu_index:0
+  }
   render() {
     return (
       
       <BrowserRouter>
-        
+        <Menu />
         <Switch>
-          <Route path="/" component={HomeScreen} exact/>
+        
+          <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
           {/*<Route path="/projects" component={ProjectsScreen} />*/}
           <Route path="/contact" component={ContactScreen} />
           <Route path="/donate" component={ProjectsScreen} />
           <Route component={ErrorScreen}/>
         </Switch>
+        <Footer/> 
         {/*<Redirect from= "*" to="/error"/>*/}
       </BrowserRouter>
-      
-    );
+        
+      );
   }
 }
 
