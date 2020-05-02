@@ -41,19 +41,29 @@ class ContactBanner extends React.Component{
 
   handleSubmit = async (e) =>{
 	e.preventDefault();
+
+	const port = process.env["NODE_PORT"]
+	const domain = "localhost:"
+	console.log("Node env port: "+port)
+
 	console.log("submmiting...")
-    let response = await axios({
-      method: "POST", 
-      url:"http://localhost:3000/contact", 
-      data:  this.state
-    })
-    
-    if (response.data.status === 'success'){
+	
+	let response = await axios({
+		method: 'post',
+		url: "http://localhost:"+port+"/contact/send_email",
+		data: {
+		  firstName: 'Fred',
+		  lastName: 'Flintstone'
+		}
+	  });
+	console.log("Email response: ", response)
+    if (response.status === 200){
       alert("Message Sent."); 
       this.setState({name: "", email: "", message: ""})
     }else if(response.data.status === 'fail'){
       alert("Message failed to send.")
-    }
+	}
+	
   }
 
   

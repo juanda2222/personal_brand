@@ -34,7 +34,8 @@ class App extends Component {
           {/*<Route path="/projects" component={ProjectsScreen} />*/}
           <Route path="/contact" component={ContactScreen} />
           <Route path="/donate" component={ProjectsScreen} />
-          <Route component={ErrorScreen}/>
+          <Route path="/*" component={ErrorScreen}/>
+          {/*<Redirect to="/error"/>*/}
         </Switch>
         <Footer/> 
         {/*<Redirect from= "*" to="/error"/>*/}

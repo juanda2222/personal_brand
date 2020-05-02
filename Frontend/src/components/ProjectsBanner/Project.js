@@ -12,7 +12,6 @@ import { FaFileCode, FaLaptopCode } from 'react-icons/fa';
 import ZoomImage from "../ZoomImage/ZoomImage.js"
 
 
-import 'react-medium-image-zoom/dist/styles.css'
 
 const Project = props => {
     

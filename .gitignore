@@ -1,16 +1,21 @@
+
+
+
+
 ############################################################
 ###-------- Portfolio .gitignore (react frontend) -------###
 ############################################################
 
 # dependencies
-/portfolio/node_modules
-/portfolio/yarn.lock
+/Frontend/node_modules
+/Frontend/yarn.lock
+/Frontend/credentials
 
 # testing
-/portfolio/coverage
+/Frontend/coverage
 
 # production
-/portfolio/build
+/Frontend/build
 
 # misc
 .DS_Store
