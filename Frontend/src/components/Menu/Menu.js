@@ -76,7 +76,7 @@ class Menu extends Component {
       <li><Link onClick={() => { this.setState({current_index: 2}) }} className={i===2 ? "active" : ""}
          to="/#about_banner_pointer">About</Link></li>
       <li><Link onClick={() => { this.setState({current_index: 3}) }} className={i===3 ? "active" : ""}
-         to="/contact/#top_pointer">Contact</Link></li>
+         to="/contact#top_pointer">Contact</Link></li>
       <li><Link onClick={() => { this.setState({current_index: 4}) }} className={i===4 ? "active" : ""}
          to="/donate">Donate</Link></li>
       

@@ -4,35 +4,53 @@ import React, {
 import "./ContactBanner.css"
 import personal_logo from "../../assets/personal_logo.png"
 
-import BeautyButton from "../Buttons/BeautyButton"
+
+import { store } from 'react-notifications-component';
+import ReCAPTCHA from "react-google-recaptcha";
+import { FaBehanceSquare, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import axios from 'axios';
+
+
+//import BeautyButton from "../Buttons/BeautyButton"
+//import ReactLoading from 'react-loading';
+
+import BeautyLoadingButton from "../Buttons/BeautyLoadingButton"
 import pageInfo from "../../assets/pageInfo"
 
 
-import { FaBehanceSquare, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import axios from 'axios';
+
+const recaptchaRef = React.createRef();
 
 class ContactBanner extends React.Component{
   
   state = {
+	is_sending:false,
   	name: '',
   	email: '',
-  	message: '',
+	message: '',
+	name__input_class: "form_input",
+	email__input_class: "form_input",
+	message__input_class: "form_input",
+	captcha:""
   }
 
   onNameChange = (event) => {
-	console.log((this!=="undefined"))
+	event.preventDefault(); //prevents the page from reloading itself
+	//console.log((this!=="undefined"))
 	if (this!=="undefined") {
 		this.setState({name: event.target.value})
 	}
   }
 
   onEmailChange = (event) => {
+	event.preventDefault(); //prevents the page from reloading itself
 	if (this!=="undefined") {
 		this.setState({email: event.target.value})
 	}
   }
 
   onMessageChange = (event) => {
+	event.preventDefault(); //prevents the page from reloading itself
 	if (this!=="undefined") {
 		this.setState({message: event.target.value})
 	}
@@ -40,32 +58,111 @@ class ContactBanner extends React.Component{
 
 
   handleSubmit = async (e) =>{
-	e.preventDefault();
+	  
+	//process captcha only if the fields are filled:
+	if ( !this.state.is_sending && (this.state.name !== "") && (this.state.email !== "") && (this.state.message !== "")){
+		
+		this.setState({is_sending:true}) //set up the loading animation
+		recaptchaRef.current.execute() // verify with captcha
 
-	const port = process.env["NODE_PORT"]
-	const domain = "localhost:"
-	console.log("Node env port: "+port)
+	// show a message if any field is empty
+	} else {
 
-	console.log("submmiting...")
+		//change the color of the empty inputs:
+		if (this.state.name === "" ) this.setState({name__input_class:"form_input_error"})
+		if (this.state.email === "" ) this.setState({email__input_class:"form_input_error"})
+		if (this.state.message === "" ) this.setState({message__input_class:"form_input_error"})
+		
+		store.addNotification({
+			title: "Error",
+			message: "Please fill all fields!",
+			type: "danger",
+			insert: "top",
+			container: "top-center",
+			animationIn: ["animated", "fadeIn"],
+			animationOut: ["animated", "fadeOut"],
+			dismiss: {
+			  duration: 5000,
+			  onScreen: true
+			}
+		  });
+	}
+  }
+
+  // when the captcha is processed we can request the email post
+  captcha_onChange = async (value) => {
+	//console.log("Captcha value:", value);
+
+	//const recaptchaValue = await recaptchaRef.current.getValue(); //this is an instant value and can return empty
+
+	
+	const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
+	//const domain = "localhost:"
+	//console.log("Port: "+port)
+	//console.log("enviroment: ", process.env)
+	//await new Promise(resolve => setTimeout(resolve, 5000)); //this is a delay used for testing
+	//let response = {status:200}
+
+	var data = {
+		name: this.state.name,
+		email: this.state.email,
+		message: this.state.message,
+		captcha: value
+	}
+	console.log("submmiting data... Data: ", data)
 	
 	let response = await axios({
 		method: 'post',
 		url: "http://localhost:"+port+"/contact/send_email",
-		data: {
-		  firstName: 'Fred',
-		  lastName: 'Flintstone'
-		}
-	  });
-	console.log("Email response: ", response)
-    if (response.status === 200){
-      alert("Message Sent."); 
-      this.setState({name: "", email: "", message: ""})
-    }else if(response.data.status === 'fail'){
-      alert("Message failed to send.")
-	}
+		data: data
+	});
 	
-  }
 
+	//Send info message if sent
+	if (response.status === 200){
+		store.addNotification({
+			title: "Admin",
+			message: "Message sent! Thanks for writing us",
+			type: "info",
+			insert: "top",
+			container: "top-center",
+			animationIn: ["animated", "fadeIn"],
+			animationOut: ["animated", "fadeOut"],
+			dismiss: {
+				duration: 5000,
+				onScreen: true
+			}
+		});
+		// clean everything
+		this.setState({
+			name: "", email: "", message: "",
+			name__input_class:"form_input", 
+			email__input_class:"form_input", 
+			message__input_class:"form_input",
+			is_sending:false
+		})
+
+
+	// notify the error if the server returns error
+	}else {
+		store.addNotification({
+			title: "Server error!",
+			message: "Please try again later. Thanks",
+			type: "danger",
+			insert: "top",
+			container: "top-center",
+			animationIn: ["animated", "fadeIn"],
+			animationOut: ["animated", "fadeOut"],
+			dismiss: {
+				duration: 5000,
+				onScreen: true
+			}
+		});
+		// clean the loading
+		this.setState({is_loading:false})
+	}
+  }
+   
   
   render() {
 	return(
@@ -108,14 +205,14 @@ class ContactBanner extends React.Component{
 							<div className="form_group">
 								<label htmlFor="name">Name</label>
 								<input type="text" 
-									className="form_input" 
+									className={this.state.name__input_class} 
 									id="name" value={this.state.name} 
 									onChange={this.onNameChange} />
 							</div>
 							<div className="form_group">
 								<label htmlFor="exampleInputEmail1">Email address</label>
 								<input type="email" 
-									className="form_input" 
+									className={this.state.email__input_class} 
 									id="email" 
 									aria-describedby="emailHelp" 
 									value={this.state.email} 
@@ -123,17 +220,26 @@ class ContactBanner extends React.Component{
 							</div>
 							<div className="form_group">
 								<label htmlFor="message">Message</label>
-								<textarea className="form_input" 
+								<textarea className={this.state.message__input_class} 
 									rows="5" 
+									maxLength = "150"
 									id="message" 
 									value={this.state.message} 
 									onChange={this.onMessageChange} />
 							</div>
-							
-							<BeautyButton 
+							<ReCAPTCHA
+								sitekey="6LdHkPIUAAAAAJQnHy_P1BMIYXgLDk52gEWWUmEr"
+								onChange={this.captcha_onChange}
+								theme="light"
+								size="invisible"
+								ref={recaptchaRef}
+							/>
+							<BeautyLoadingButton 
 								style={{width:"70%", fontSize:"16px"}}
-								onClick={this.handleSubmit}>Submit</BeautyButton>
-							
+								is_loading={this.state.is_sending}
+								onClick={this.handleSubmit}>
+									Submit
+							</BeautyLoadingButton>
 							
 						</form>
 					</div>

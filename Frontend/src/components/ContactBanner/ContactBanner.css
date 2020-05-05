@@ -78,10 +78,9 @@ div.darkener_container{
 
 
 
-
-.contact_form{
-	max-width: 400px;
-	width: 200px;
+.contact_form_container .contact_form{
+	
+	height: 80vh;
 	padding: 5vh 0 5vh 0;
 	display:flex;
 	flex: 1;
@@ -89,7 +88,7 @@ div.darkener_container{
 	justify-content: center;
 }
 
-.form_group{
+.contact_form_container .form_group{
 	font-size: 16px;
 	display:flex;
 	flex-direction: column;
@@ -97,11 +96,19 @@ div.darkener_container{
 	padding: 4px 0 4px 0;
 }
 
-.form_input{
+.contact_form_container .form_input,
+.contact_form_container .form_input:active{
+	max-width: 290px;
+	max-height: 110px;
+
 	color: rgb(56, 56, 56);
 	border-color: transparent;
 	border-radius: 3px;
 	background-color: rgb(180, 179, 179);
+}
+
+.contact_form_container .form_input_error{
+	background-color: rgb(212, 148, 148);
 }
 
 

@@ -9,12 +9,16 @@ import {
   //Redirect, 
 } from 'react-router-dom';
 
+import 'react-notifications-component/dist/theme.css'
+import ReactNotification from 'react-notifications-component'
+
 import HomeScreen from "./components/HomeScreen.js";
 import ProjectsScreen from "./components/ProjectsScreen.js";
 import ContactScreen from "./components/ContactScreen.js"
 import ErrorScreen from "./components/ErrorScreen.js";
 import Footer from "./components/Footer/Footer"
 import Menu from "./components/Menu/Menu"
+
 
 
 
@@ -27,6 +31,7 @@ class App extends Component {
     return (
       
       <BrowserRouter>
+        <ReactNotification/>
         <Menu />
         <Switch>
         
