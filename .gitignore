@@ -9,7 +9,6 @@
 # dependencies
 /Frontend/node_modules
 /Frontend/yarn.lock
-/Frontend/credentials
 
 # testing
 /Frontend/coverage
@@ -28,5 +27,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+########################################
+###-------- root files ignore -------###
+########################################
 
-
+/credentials
+/__credentials

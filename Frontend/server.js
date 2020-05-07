@@ -26,15 +26,33 @@ const path = require('path');
 const fs = require("fs")
 const axios = require('axios');
 
-
+//custom modules:
 const Mail_Manager = require("./src/modules/mail_manager/Mail_manager_secure")
+const SecretsManager = require("./src/modules/CloudStorage/SecretsManager")
 
-//constants:
-var SECRETS =  JSON.parse(fs.readFileSync("../credentials/secrets.json"))
 
-var port =  (process.env["NODE_PORT"]) ? process.env["NODE_PORT"] : 1000
+// constants:
+let SECRETS;
+var PORT =  (process.env["NODE_PORT"]) ? process.env["NODE_PORT"] : 1000
 var allowedOrigins = ['http://localhost:3000', //react start port
-                      'https://alfagenos.com']; //my domain name
+                        'https://alfagenos.com']; //my domain name
+
+
+
+const config_app = async () =>{
+  
+  //download the secret files:
+  let secretsManager = new SecretsManager()
+  var response = await secretsManager.save_all_secrets()
+  console.log("Secret files downloaded: ", response)
+  
+  await new Promise((resolve, reject) => setTimeout(() =>{resolve()}, 10000))
+
+  //load constants:
+  SECRETS =  JSON.parse(fs.readFileSync("../credentials/secrets.json"))
+}
+
+let app_is_configured = config_app()
 
 //create the express app
 const app = express();
@@ -58,9 +76,11 @@ app.use(express.json());
 
 
 app.post('/contact/send_email', async (req, res) => {
+  
+  await app_is_configured
+
   //console.log("Ip addres of the reques: ", req.connection.remoteAddress)
   console.log("Req data: ", req.body )
-  
   console.log("secret captcha: ", SECRETS.CAPTCHA_SECRET)
 
   //check with the captcha endpoint if the request is legitimate:
@@ -144,5 +164,6 @@ if (process.env["PRODUCTION"] === "true"){
 
 
 console.log(">>> Backend Online")
-console.log("   Server running at port: "+port)
-app.listen(port, () => console.log(`listening on ${port}`));
+console.log("   Server running at port: "+PORT)
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
+
