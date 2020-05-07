@@ -5,7 +5,7 @@
 ###-------- root files ignore -------###
 ########################################
 
-credentials/
+#credentials/
 __credentials/
 
 
