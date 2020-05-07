@@ -31,5 +31,5 @@ yarn-error.log*
 ###-------- root files ignore -------###
 ########################################
 
-/credentials
-/__credentials
+/credentials/
+/__credentials/
