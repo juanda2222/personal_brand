@@ -1,6 +1,9 @@
 var nodemailer = require('nodemailer');
 
 const fs = require('fs');
+const path = require("path")
+
+
 const readline = require('readline');
 const {google} = require('googleapis');
 
@@ -37,7 +40,8 @@ class SecretsManager{
     
     save_all_secrets = async () =>{
         
-        const crdentials_dir_path = __dirname+"/../../../../credentials"
+        const crdentials_dir_path = path.normalize(__dirname+"/../../../../credentials")
+        console.log(">> Credentials path: ", crdentials_dir_path)
         
         if (!fs.existsSync(crdentials_dir_path)){
             fs.mkdirSync(crdentials_dir_path);

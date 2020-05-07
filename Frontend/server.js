@@ -18,6 +18,8 @@ console.log(">> Test env var", process.env["var"])
 */
 
 
+//proyect_id = "encoded-road-275921"
+
 //server.js
 const express = require('express');
 const cors = require('cors');
@@ -46,10 +48,10 @@ const config_app = async () =>{
   var response = await secretsManager.save_all_secrets()
   console.log("Secret files downloaded: ", response)
   
-  await new Promise((resolve, reject) => setTimeout(() =>{resolve()}, 10000))
+  //await new Promise((resolve, reject) => setTimeout(() =>{console.log("timeout!");resolve()}, 50000))
 
   //load constants:
-  SECRETS =  JSON.parse(fs.readFileSync("../credentials/secrets.json"))
+  SECRETS =  JSON.parse(fs.readFileSync(path.normalize(__dirname+"../credentials/secrets.json")))
 }
 
 let app_is_configured = config_app()
