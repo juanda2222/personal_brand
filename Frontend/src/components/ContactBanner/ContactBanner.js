@@ -97,7 +97,7 @@ class ContactBanner extends React.Component{
 	if (value!==null){
 
 		const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
-		const domain = process.env.REACT_APP_PRODUCTION ? "david.alfagenos.com": "http://localhost:"+port
+		const domain = process.env.REACT_APP_PRODUCTION==="true" ? "https://david.alfagenos.com": "http://localhost:"+port
 		//const domain = "localhost:"
 		//console.log("Port: "+port)
 		//console.log("enviroment: ", process.env)

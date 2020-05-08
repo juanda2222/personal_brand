@@ -38,7 +38,7 @@ let SECRETS;
 var PORT =  (process.env["NODE_PORT"]) ? process.env["NODE_PORT"] : 1000
 var allowedOrigins = ['http://localhost:3000', //react start port
                       'http://localhost:8080', //production port
-                        'https://alfagenos.com']; //my domain name
+                        'https://david.alfagenos.com']; //my domain name
 
 
 
