@@ -79,8 +79,8 @@ class ContactBanner extends React.Component{
 			type: "danger",
 			insert: "top",
 			container: "top-center",
-			animationIn: ["animated", "fadeIn"],
-			animationOut: ["animated", "fadeOut"],
+			animationIn: ["fade-in"],
+			animationOut: ["fade-out"],
 			dismiss: {
 			  duration: 5000,
 			  onScreen: true
@@ -91,75 +91,77 @@ class ContactBanner extends React.Component{
 
   // when the captcha is processed we can request the email post
   captcha_onChange = async (value) => {
+
 	//console.log("Captcha value:", value);
-
 	//const recaptchaValue = await recaptchaRef.current.getValue(); //this is an instant value and can return empty
+	if (value!==null){
 
-	
-	const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
-	//const domain = "localhost:"
-	//console.log("Port: "+port)
-	//console.log("enviroment: ", process.env)
-	//await new Promise(resolve => setTimeout(resolve, 5000)); //this is a delay used for testing
-	//let response = {status:200}
+		const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
+		const domain = process.env.REACT_APP_PRODUCTION ? "david.alfagenos.com": "http://localhost:"+port
+		//const domain = "localhost:"
+		//console.log("Port: "+port)
+		//console.log("enviroment: ", process.env)
+		//await new Promise(resolve => setTimeout(resolve, 5000)); //this is a delay used for testing
+		//let response = {status:200}
 
-	var data = {
-		name: this.state.name,
-		email: this.state.email,
-		message: this.state.message,
-		captcha: value
-	}
-	console.log("submmiting data... Data: ", data)
-	
-	let response = await axios({
-		method: 'post',
-		url: "http://localhost:"+port+"/contact/send_email",
-		data: data
-	});
-	
-
-	//Send info message if sent
-	if (response.status === 200){
-		store.addNotification({
-			title: "Admin",
-			message: "Message sent! Thanks for writing us",
-			type: "info",
-			insert: "top",
-			container: "top-center",
-			animationIn: ["animated", "fadeIn"],
-			animationOut: ["animated", "fadeOut"],
-			dismiss: {
-				duration: 5000,
-				onScreen: true
-			}
+		var data = {
+			name: this.state.name,
+			email: this.state.email,
+			message: this.state.message,
+			captcha: value
+		}
+		console.log("submmiting data... Data: ", data)
+		
+		let response = await axios({
+			method: 'post',
+			url: domain + "/contact/send_email",
+			data: data
 		});
-		// clean everything
-		this.setState({
-			name: "", email: "", message: "",
-			name__input_class:"form_input", 
-			email__input_class:"form_input", 
-			message__input_class:"form_input",
-			is_sending:false
-		})
+		
+
+		//Send info message if sent
+		if (response.status === 200){
+			store.addNotification({
+				title: "Admin",
+				message: "Message sent! Thanks for writing us",
+				type: "info",
+				insert: "top",
+				container: "top-center",
+				animationIn: ["fade-in"],
+				animationOut: ["fade-out"],
+				dismiss: {
+					duration: 5000,
+					onScreen: true
+				}
+			});
+			// clean everything
+			this.setState({
+				name: "", email: "", message: "",
+				name__input_class:"form_input", 
+				email__input_class:"form_input", 
+				message__input_class:"form_input",
+				is_sending:false
+			})
 
 
-	// notify the error if the server returns error
-	}else {
-		store.addNotification({
-			title: "Server error!",
-			message: "Please try again later. Thanks",
-			type: "danger",
-			insert: "top",
-			container: "top-center",
-			animationIn: ["animated", "fadeIn"],
-			animationOut: ["animated", "fadeOut"],
-			dismiss: {
-				duration: 5000,
-				onScreen: true
-			}
-		});
-		// clean the loading
-		this.setState({is_loading:false})
+		// notify the error if the server returns error
+		}else {
+			store.addNotification({
+				title: "Server error!",
+				message: "Please try again later. Thanks",
+				type: "danger",
+				insert: "top",
+				container: "top-center",
+				animationIn: ["fade-in"],
+				animationOut: ["fade-out"],
+				dismiss: {
+					duration: 5000,
+					onScreen: true
+				}
+			});
+			// clean the loading
+			this.setState({is_loading:false})
+		}
 	}
   }
    

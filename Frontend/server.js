@@ -37,6 +37,7 @@ const SecretsManager = require("./src/modules/CloudStorage/SecretsManager")
 let SECRETS;
 var PORT =  (process.env["NODE_PORT"]) ? process.env["NODE_PORT"] : 1000
 var allowedOrigins = ['http://localhost:3000', //react start port
+                      'http://localhost:8080', //production port
                         'https://alfagenos.com']; //my domain name
 
 
@@ -51,7 +52,7 @@ const config_app = async () =>{
   //await new Promise((resolve, reject) => setTimeout(() =>{console.log("timeout!");resolve()}, 50000))
 
   //load constants:
-  SECRETS =  JSON.parse(fs.readFileSync(path.normalize(__dirname+"../credentials/secrets.json")))
+  SECRETS =  JSON.parse(fs.readFileSync(path.normalize(__dirname+"/../credentials/secrets.json")))
 }
 
 let app_is_configured = config_app()
@@ -82,7 +83,7 @@ app.post('/contact/send_email', async (req, res) => {
   await app_is_configured
 
   //console.log("Ip addres of the reques: ", req.connection.remoteAddress)
-  console.log("Req data: ", req.body )
+  console.log("Req 'send email' data: ", req.body )
   console.log("secret captcha: ", SECRETS.CAPTCHA_SECRET)
 
   //check with the captcha endpoint if the request is legitimate:
@@ -136,6 +137,13 @@ app.post('/contact/send_email', async (req, res) => {
   
 });
 
+//this is a test endpoint
+app.get('/ping', function (req, res) {
+  console.log("-> Ping");
+  console.log("-> Host name: ", req.headers.host)
+
+  return res.send('Good job! you found this url, have his cookie: 🍪');
+});
 
 // serve the static files if in production:
 if (process.env["PRODUCTION"] === "true"){
@@ -147,8 +155,8 @@ if (process.env["PRODUCTION"] === "true"){
   app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
   app.use(express.static(path.join(__dirname, 'build')));
 
-  app.get('/*', function (req, res) {
-    console.log("-> page")
+  app.get('*', function (req, res) {
+    console.log("-> Page")
 
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
     //return res.send('root');
@@ -158,9 +166,9 @@ if (process.env["PRODUCTION"] === "true"){
 // create all the handlers needed on development: 
 }else {
 
-  app.get('/ping', function (req, res) {
-    console.log("-> ping");
-    return res.send('ping bby');
+  app.get('/test', function (req, res) {
+    console.log("-> test");
+    return res.send('test bby');
   });
 }
 
