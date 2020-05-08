@@ -32,6 +32,12 @@ a.loading div{
 	margin: 0 0 3px 0;
 }
 
+.loading-action-button:hover
+{
+	background-color: rgb(29, 125, 160);
+	border-bottom: 5px solid rgb(27, 97, 128);
+}
+
 .loading-action-button:active
 {
 	margin: 14px 5px 2px 5px;
@@ -45,5 +51,5 @@ a.loading div{
 {
 	background-color: #146E8E;
 	border-bottom: 5px solid #0C445C;
-	/*text-shadow: 0px -2px #10262D;*/
+	/*text-shadow: 1px 2px #10262D;*/
 }

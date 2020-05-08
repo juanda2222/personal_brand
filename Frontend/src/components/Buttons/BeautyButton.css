@@ -21,6 +21,11 @@
 	font-family: 'opensans-bold', sans-serif;
 	font-size: 18px;
 }
+.action-button:hover
+{
+	background-color: rgb(29, 125, 160);
+	border-bottom: 5px solid rgb(27, 97, 128);
+}
 
 .action-button:active
 {
@@ -30,6 +35,7 @@
 	border-bottom: 1px solid;
 	border-color: transparent;
 }
+
 
 .blue
 {
