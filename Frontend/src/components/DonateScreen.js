@@ -5,13 +5,13 @@ import Menu from './Menu/Menu.js';
 import Footer from './Footer/Footer.js';
 import Section from './Section/test.js';
 
-class ProyectsScreen extends Component {
+class DonateScreen extends Component {
 
   render() {
     return (
       
       <div>
-        <span id="projects_top_pointer"></span>
+        <span id="donate_top_pointer"></span>
         <Menu/>
         <Section
           id="Donate"
@@ -21,19 +21,11 @@ class ProyectsScreen extends Component {
           id="Proyect 2"
           title="Proyect 2"
         />
-        <Section
-          id="Proyect 3"
-          title="Proyect 3"
-        />
-        <Section
-          id="Proyect 4"
-          title="Proyect 4"
-        />
-        <Footer top_pointer_id="projects_top_pointer"/>
+        <Footer top_pointer_id="donate_top_pointer"/>
       </div>
       
     );
   }
 }
 
-export default ProyectsScreen;
+export default DonateScreen;

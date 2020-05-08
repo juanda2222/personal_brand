@@ -47,19 +47,24 @@ class Menu extends Component {
 
     //renders the colors based on the url:
     //console.log("href url: "+window.location.pathname)
-    let url = window.location.pathname
+    let url = window.location.pathname // pathname if after the domain
     if (url.length === 1){
-      console.log("--- root in")
+      //console.log("--- root in")
       this.setState({current_index: 0})
     }else if (url.includes("contact")){
-      console.log("--- contact in")
+      //console.log("--- contact in")
       this.setState({current_index: 3})
     } else if (url.includes("donate")){
-      console.log("--- donate in")
+      //console.log("--- donate in")
       this.setState({current_index: 4})
     } 
 
     window.addEventListener('scroll', this.listenScrollEvent)
+  }
+  componentWillUnmount() {
+
+    //renders the colors based clean the event listeners:
+    window.removeEventListener('scroll', this.listenScrollEvent)
   }
 
 
@@ -67,18 +72,18 @@ class Menu extends Component {
     let i = this.state.current_index 
 
     return (
-      <ul id="menu_list" onClick={this.backdropClickHandler}>
+      <ul id="menu_list" onClick={() => {}}>
           
-      <li><Link onClick={() => { this.setState({current_index: 0}) }} className={i===0 ? "active" : ""}
-         to="/#top_pointer">Home</Link></li>
-      <li><Link onClick={() => { this.setState({current_index: 1}) }} className={i===1 ? "active" : ""}
+      <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 0}) }} className={i===0 ? "active" : ""}
+         to="/#home_top_pointer">Home</Link></li>
+      <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 1}) }} className={i===1 ? "active" : ""}
          to="/#projects_banner_pointer">Projects</Link></li>
-      <li><Link onClick={() => { this.setState({current_index: 2}) }} className={i===2 ? "active" : ""}
+      <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 2}) }} className={i===2 ? "active" : ""}
          to="/#about_banner_pointer">About</Link></li>
-      <li><Link onClick={() => { this.setState({current_index: 3}) }} className={i===3 ? "active" : ""}
-         to="/contact#top_pointer">Contact</Link></li>
-      <li><Link onClick={() => { this.setState({current_index: 4}) }} className={i===4 ? "active" : ""}
-         to="/donate">Donate</Link></li>
+      <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 3}) }} className={i===3 ? "active" : ""}
+         to="/contact#contact_top_pointer">Contact</Link></li>
+      <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 4}) }} className={i===4 ? "active" : ""}
+         to="/donate#donate_top_pointer">Donate</Link></li>
       
     </ul>
   )}

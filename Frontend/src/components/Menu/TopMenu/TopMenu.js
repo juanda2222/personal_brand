@@ -50,9 +50,7 @@ class TopMenu extends React.Component {
     //console.log(menu_className)
     return (
       <nav className={menu_className}>
-        <div className="toggle_button">{/* it hides if the size is to big */}
-          <MenuButton click={this.props.menuClickHandler} />
-        </div>
+        <MenuButton click={this.props.menuClickHandler} />
         <div className="menu_items_wraper">
           {this.props.children}
         </div>
