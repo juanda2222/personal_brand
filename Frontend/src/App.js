@@ -23,34 +23,28 @@ import ErrorScreen from "./components/ErrorScreen.js";
 
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
 const domain = process.env.REACT_APP_PRODUCTION ==="true" ? "https://david.alfagenos.com": "http://localhost:"+port
+
 const api_list = ["/ping"]
 
 class App extends Component {
 
-  state = {
-    menu_index:0
+  
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+    this.state = {
+      menu_index:0
+    }
+    //console.log(">> path: ", text)
+    if ( (typeof window !== 'undefined') && (api_list.indexOf(window.location.pathname) !== -1) ) {
+      console.log("redirecting...")
+      window.location.href = domain+"/ping";
+    }
   }
 
-  //componentDidMount(){
-  //  if ( (typeof window !== 'undefined') && (api_list.indexOf(window.location.pathname) !== -1)) {
-  //        window.location.href = domain+"/ping";
-  //  }
-  //}
-  
   render() {
-    //console.log(">> path: ", text)
     
-    if (api_list.indexOf(window.location.pathname) !== -1){
-      window.location.href = domain+"/ping";
-      return <div/>
-      //window.location.replace(domain+"/ping")
-      //window.location.href = domain+"/ping"; //this will reload the page
-      //window.location.reload()
-      //history.push('/page-name') // this will mantain the router paradigm
-      //return <Redirect to={domain+"/ping"}/> // return nothing if the url is from an api
-    }
     return (
-
       <BrowserRouter>
         <ReactNotification/>
         <Switch>

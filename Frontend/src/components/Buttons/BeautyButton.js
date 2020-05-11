@@ -14,3 +14,4 @@ const BeautyButton = (props) =>{
 }
 
 export default BeautyButton;
+

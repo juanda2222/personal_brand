@@ -8,6 +8,10 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+
+const api_list = ["/ping"]
+
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -28,6 +32,17 @@ export default function register() {
       // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
       return;
     }
+
+    /**
+     * Here we exclude all the external apis from the service worker cache
+     */
+    if (api_list.indexOf(window.location.pathname) !== -1) {
+      return;
+    }
+    
+
+
+
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
