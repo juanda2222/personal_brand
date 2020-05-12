@@ -1,6 +1,9 @@
 import React, { Component,  } from 'react';
 
+//import 'bootstrap/dist/css/bootstrap.min.css'; //bootstrap default ib
+
 import './App.css';
+
 
 import {
   BrowserRouter,
@@ -21,12 +24,30 @@ import ErrorScreen from "./components/ErrorScreen.js";
 //import Footer from "./components/Footer/Footer"
 //import Menu from "./components/Menu/Menu"
 
+//material ui styling wrappers:
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
 const domain = process.env.REACT_APP_PRODUCTION ==="true" ? "https://david.alfagenos.com": "http://localhost:"+port
 
 const api_list = ["/ping"]
 
-class App extends Component {
+// Create my own theme:
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#1b6180'
+    },
+    secondary: {
+      main: '#0C445C'
+    }
+  }
+});
+
+
+export default class App extends Component {
 
   
   constructor(props) {
@@ -45,25 +66,25 @@ class App extends Component {
   render() {
     
     return (
-      <BrowserRouter>
-        <ReactNotification/>
-        <Switch>
-          {/*<Route path='/ping' 
-              component={Redirect}
-              loc={domain+"/ping"}
-          />*/}          
-          <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
-          {/*<Route path="/projects" component={ProjectsScreen} />*/}
-          <Route path="/contact" component={ContactScreen} />
-          <Route path="/donate" component={DonateScreen} />
-          <Route path="/*" component={ErrorScreen}/>
-          {/*<Redirect to="/error"/>*/}
-        </Switch>
-        {/*<Redirect from= "*" to="/error"/>*/}
-      </BrowserRouter>
-        
+      <MuiThemeProvider theme={theme}>
+    
+        <BrowserRouter>
+          <ReactNotification/>
+          <Switch>
+            {/*<Route path='/ping' 
+                component={Redirect}
+                loc={domain+"/ping"}
+            />*/}          
+            <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
+            {/*<Route path="/projects" component={ProjectsScreen} />*/}
+            <Route path="/contact" component={ContactScreen} />
+            <Route path="/donate" component={DonateScreen} />
+            <Route path="/*" component={ErrorScreen}/>
+            {/*<Redirect to="/error"/>*/}
+          </Switch>
+          {/*<Redirect from= "*" to="/error"/>*/}
+        </BrowserRouter>
+      </MuiThemeProvider>  
       );
   }
 }
-
-export default App;

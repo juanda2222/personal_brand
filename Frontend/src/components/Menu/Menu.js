@@ -75,15 +75,15 @@ class Menu extends Component {
       <ul id="menu_list" onClick={() => {}}>
           
       <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 0}) }} className={i===0 ? "active" : ""}
-         to="/#home_top_pointer">Home</Link></li>
+         to="/#top_pointer">Home</Link></li>
       <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 1}) }} className={i===1 ? "active" : ""}
          to="/#projects_banner_pointer">Projects</Link></li>
       <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 2}) }} className={i===2 ? "active" : ""}
          to="/#about_banner_pointer">About</Link></li>
       <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 3}) }} className={i===3 ? "active" : ""}
-         to="/contact#contact_top_pointer">Contact</Link></li>
+         to="/contact#top_pointer">Contact</Link></li>
       <li><Link onClick={() => { this.setState({sideMenuOpen: false, current_index: 4}) }} className={i===4 ? "active" : ""}
-         to="/donate#donate_top_pointer">Donate</Link></li>
+         to="/donate#top_pointer">Donate</Link></li>
       
     </ul>
   )}

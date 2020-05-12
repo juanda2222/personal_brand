@@ -14,7 +14,7 @@ import axios from 'axios';
 //import BeautyButton from "../Buttons/BeautyButton"
 //import ReactLoading from 'react-loading';
 
-import BeautyLoadingButton from "../Buttons/BeautyLoadingButton"
+import DonateCard from "./DonateCard"
 import pageInfo from "../../assets/pageInfo"
 
 
@@ -22,8 +22,6 @@ import pageInfo from "../../assets/pageInfo"
 
 class DonateBanner extends React.Component {
 	state = {
-		email: "",
-		message: "",
 		is_sending: false,
 		dark_classname: "dark_background",
 		light_classname: "light_background"
@@ -41,6 +39,9 @@ class DonateBanner extends React.Component {
 			light_classname: "light_background"
 		})
 	}
+	donateHandler = () => {
+
+	}
 
 	render() {
 		return (
@@ -49,45 +50,18 @@ class DonateBanner extends React.Component {
 					position: "absolute",
 					zIndex:-1,
 					top:0,  
+					width: "100vw",
+					//objectFit:"cover",
 					}}/>
 				<div className={this.state.dark_classname}/>
 				<div className={this.state.light_classname}/>
-				<div className="donate_card">
-					<p>
-						{"Donate"}
-					</p>
-					<form id="contact_form" method="POST">
-						<div className="form_group">
-							<label htmlFor="exampleInputEmail1">Amount</label>
-							<input type="email"
-								className=""
-								id="email"
-								aria-describedby="emailHelp"
-								value={this.state.email}
-								onChange={()=>{}} />
-						</div>
-						<div className="form_group">
-							<label htmlFor="message">Message</label>
-							<textarea className=""
-								rows="5"
-								maxLength="150"
-								id="message"
-								value={this.state.message}
-								onChange={()=>{}} />
-						</div>
-						<BeautyLoadingButton
-							style={{ width: "70%", fontSize: "16px" }}
-							is_loading={this.state.is_sending}
-							onClick={this.handleSubmit}
-							onMouseEnter={this.donateHover}
-							onMouseLeave={this.donateNormal}
-						>
 
-
-							Submit
-						</BeautyLoadingButton>
-					</form>
-				</div>
+				<DonateCard
+					onDonateHover={this.donateHover}
+					onDonateNormal={this.donateNormal}
+					DonateClick={this.donateHandler}
+					is_sending = {this.state.is_sending}
+				/>
 			</div>
 		);
 	}

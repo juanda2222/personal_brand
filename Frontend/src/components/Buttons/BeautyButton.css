@@ -24,7 +24,7 @@
 .action-button:hover
 {
 	background-color: rgb(29, 125, 160);
-	border-bottom: 5px solid rgb(27, 97, 128);
+	border-bottom: 5px solid #1b6180;
 }
 
 .action-button:active
