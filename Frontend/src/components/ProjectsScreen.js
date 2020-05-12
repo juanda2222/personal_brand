@@ -11,7 +11,7 @@ class ProyectsScreen extends Component {
     return (
       
       <div>
-        <span id="projects_top_pointer"></span>
+        <span id="top"></span>
         <Menu/>
         <Section
           id="Donate"
@@ -29,7 +29,7 @@ class ProyectsScreen extends Component {
           id="Proyect 4"
           title="Proyect 4"
         />
-        <Footer top_pointer_id="projects_top_pointer"/>
+        <Footer top_pointer_href="projecs#top"/>
       </div>
       
     );

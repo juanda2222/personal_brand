@@ -13,7 +13,7 @@ const Footer = props => {
     <div>
         <span id="footer_pointer"></span>
         <div className="footer_container">
-            <a href={"#"+props.top_pointer_id}
+            <a href={props.top_pointer_href}
                 style={{padding:"20px 0 0 0"}}>
                 <IoIosArrowDropupCircle className="icon" />
             </a>
@@ -78,7 +78,7 @@ const Footer = props => {
     );
 }
 Footer.defaultProps = {
-    top_pointer_id: "",
+    top_pointer_href: "",
 }
 
 export default Footer;

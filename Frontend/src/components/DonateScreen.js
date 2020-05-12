@@ -10,11 +10,11 @@ class DonateScreen extends Component {
   render() {
     return (
       
-      <div>
-        <span id="donate_top_pointer"></span>
+      <div style={{overflowX:"hidden", position:"relative", zIndex:1}}>
+        <span id="top_pointer"></span>
         <Menu/>
         <DonateBanner/>
-        <Footer top_pointer_id="donate_top_pointer"/>
+        <Footer top_pointer_href="donate#top_pointer"/>
       </div>
       
     );

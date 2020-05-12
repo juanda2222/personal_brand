@@ -17,14 +17,14 @@ class HomeScreen extends Component {
 
     return (
       <div id="home_screen" style={{flex:1}}>
-        <div><span id="home_top_pointer"></span></div>
+        <div><span id="top_pointer"></span></div>
         <Menu/>
         <IntroductionBanner/>
         <ProjectsBanner/>
         <AboutBanner/>
         <SkillsBanner/>
         
-        <Footer top_pointer_id={"home_top_pointer"} />
+        <Footer top_pointer_href={"#top_pointer"} />
       </div>
       
     );

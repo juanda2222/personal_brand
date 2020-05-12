@@ -39,7 +39,7 @@ class ErrorScreen extends Component {
     return (  
       <div>
         <Menu/>
-        <span id="error_top_pointer"></span>
+        <span id="top_pointer"></span>
         <div className="full_window centered" style={styles.error_container}>
           <img  width="20%" src={animated_robot} alt="loading..."/>
           <div style={styles.row_container}>
@@ -47,7 +47,7 @@ class ErrorScreen extends Component {
             <h3 style={{color:"#fefefe"}}>Ups! this page does not exist</h3>  
           </div>
         </div>
-        <Footer top_pointer_id={"error_top_pointer"} />
+        <Footer top_pointer_href={"#top_pointer"} />
       </div>
     );
   }

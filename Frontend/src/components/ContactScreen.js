@@ -15,10 +15,10 @@ class ContactScreen extends Component {
       
       <div style={{flex:1}}>
         
-        <div><span id="contact_top_pointer"></span></div>
+        <div><span id="top_pointer"></span></div>
         <Menu/>
         <ContactBanner/>
-        <Footer top_pointer_id={"contact_top_pointer"}/>
+        <Footer top_pointer_href={"contact#top_pointer"}/>
       </div>
       
     );
