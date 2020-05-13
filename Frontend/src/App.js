@@ -9,7 +9,7 @@ import {
   BrowserRouter,
   Route, 
   Switch, 
-  Redirect, 
+  //Redirect, 
 } from 'react-router-dom';
 
 import ReactNotification from 'react-notifications-component';

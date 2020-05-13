@@ -5,17 +5,17 @@ import "./DonateBanner.css"
 import group_pic2 from "../../assets/group_pic4.jpg"
 
 
-import { store } from 'react-notifications-component';
-import ReCAPTCHA from "react-google-recaptcha";
-import { FaBehanceSquare, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import axios from 'axios';
+//import { store } from 'react-notifications-component';
+//import ReCAPTCHA from "react-google-recaptcha";
+//import { FaBehanceSquare, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+//import axios from 'axios';
 
 
 //import BeautyButton from "../Buttons/BeautyButton"
 //import ReactLoading from 'react-loading';
 
 import DonateCard from "./DonateCard"
-import pageInfo from "../../assets/pageInfo"
+//import pageInfo from "../../assets/pageInfo"
 
 
 
@@ -39,14 +39,14 @@ class DonateBanner extends React.Component {
 			light_classname: "light_background"
 		})
 	}
-	donateHandler = () => {
+	donateHandler = (params) => {
 
 	}
 
 	render() {
 		return (
 			<div className="donate_form_container">
-				<img src={group_pic2} style={{
+				<img src={group_pic2} alt="" style={{
 					position: "absolute",
 					zIndex:-1,
 					top:0,  
