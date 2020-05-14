@@ -5,7 +5,7 @@ import "./DonateCard.css"
 import { FaDollarSign } from 'react-icons/fa';
 
 import PaypalButton from "../Paypal/PaypalCheckoutButton"
-import BeautyLoadingButton from "../Buttons/BeautyLoadingButton"
+//import BeautyLoadingButton from "../Buttons/BeautyLoadingButton"
 //import CustomButton from "../MaterialUi/CustomButton"
 
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -37,7 +37,10 @@ const DonateCard = props => {
       console.log('Cancelled payment!', data);
 
     return (
-        <div className="donate_card">
+        <div 
+            onMouseEnter={props.donateHover}
+            onMouseLeave={props.donateNormal}
+            className="donate_card">
             <p>
                 {"Help me mantain my blog!"}
             </p>
@@ -50,7 +53,7 @@ const DonateCard = props => {
                 >
                      
                     <ButtonGroup style={{textAlign:"center"}} color="primary" aria-label="outlined primary button group">
-                        <Button onClick={()=>{setDonation(1)}}>$1</Button>
+                        <Button onClick={()=>{setDonation(2)}}>$2</Button>
                         <Button onClick={()=>{setDonation(5)}}>$5</Button>
                         <Button onClick={()=>{setDonation(10)}}>$10</Button>
                         <Button onClick={()=>{setDonation(25)}}>$25</Button>
@@ -79,7 +82,7 @@ const DonateCard = props => {
                         <RadioGroup 
                         value={monthly} 
                         onChange={(e) => {
-                            console.log(e)
+                            //console.log(e)
                             setMonthly(e.target.value)
 
                         }} 

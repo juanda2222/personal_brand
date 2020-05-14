@@ -45,7 +45,9 @@ class DonateBanner extends React.Component {
 
 	render() {
 		return (
-			<div className="donate_form_container">
+			<div 
+				className="donate_form_container"
+				>
 				<img src={group_pic2} alt="" style={{
 					position: "absolute",
 					zIndex:-1,
@@ -57,8 +59,8 @@ class DonateBanner extends React.Component {
 				<div className={this.state.light_classname}/>
 
 				<DonateCard
-					onDonateHover={this.donateHover}
-					onDonateNormal={this.donateNormal}
+					donateHover={this.donateHover}
+					donateNormal={this.donateNormal}
 					DonateClick={this.donateHandler}
 					is_sending = {this.state.is_sending}
 				/>

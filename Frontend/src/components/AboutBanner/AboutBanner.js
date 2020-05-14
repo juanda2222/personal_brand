@@ -4,7 +4,8 @@ import "./AboutBanner.css"
 
 import profile_image from "../../assets/profile.jpg"
 import BeautyButton from '../Buttons/BeautyButton.js';
-import ZoomImage from "../ZoomImage/ZoomImage.js"
+//import ZoomImage from "../ZoomImage/ZoomImage.js"
+import ZoomModal from "../ZoomModal/ZoomModal.js"
 import page_info from "../../assets/pageInfo"
 
 //import { Link } from 'react-router-dom';
@@ -23,7 +24,10 @@ const AboutBanner = props => {
             <span id="about_banner_pointer"></span>
             <div className="about_container">
                 <div className="about_image">
-                    <ZoomImage imageWidth={"80%"} src={profile_image} alt="not found"/>
+                    <ZoomModal>
+                        <img src={profile_image} alt="not found" style={{height:"auto",width:"80%"}}/>
+                    </ZoomModal>
+                    
                 </div>                
                 <div className="about_tittle">    
                     <h1 >About Me</h1>

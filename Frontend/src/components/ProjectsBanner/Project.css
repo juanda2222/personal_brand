@@ -34,6 +34,11 @@
   color: rgb(182, 182, 182);
 }
 
+
+
+
+
+
 .project_text .image_bar {
   
   display: flex;
@@ -64,7 +69,7 @@
 .project_image img {
   /*z-index:1;*/
   max-width: 100%;
-  border-radius: 15px;
+  border-radius: 8px;
   border-color:rgb(163, 146, 45);
   border-width: 5px;
 }

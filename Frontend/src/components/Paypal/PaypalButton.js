@@ -12,7 +12,7 @@ const CLIENT = {
   sandbox:
     "AY9QgF4-noBKaJ4b4yVVv4wbt5qz-CohrktWRJtj0HDke33g6_NwVRwTWuwyZ5JvtIaHZ8fVfpNc6534",
   production:
-    "your_production_key"
+    "AfOVcYNfKUenNinw0ASoxYT6eROn02DOjneKjww0Y4JOC5XUramxM6fFvrTlLSpw_NinSWUbrSQLj5e9"
 };
 
 const CLIENT_ID =
