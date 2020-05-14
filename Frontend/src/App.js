@@ -26,7 +26,7 @@ import ErrorScreen from "./components/ErrorScreen.js";
 
 //material ui styling wrappers:
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
+import GA from './components/GoogleAnalytics/GoogleAnalytics'
 
 
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
@@ -66,25 +66,23 @@ export default class App extends Component {
   render() {
     
     return (
-      <MuiThemeProvider theme={theme}>
-    
-        <BrowserRouter>
+      
+      <BrowserRouter>
+        <MuiThemeProvider theme={theme}>
           <ReactNotification/>
+          
           <Switch>
-            {/*<Route path='/ping' 
-                component={Redirect}
-                loc={domain+"/ping"}
-            />*/}          
+            { GA.Init() && <GA.RouteTracker /> }         
             <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
             {/*<Route path="/projects" component={ProjectsScreen} />*/}
             <Route path="/contact" component={ContactScreen} />
             <Route path="/donate" component={DonateScreen} />
             <Route path="/*" component={ErrorScreen}/>
-            {/*<Redirect to="/error"/>*/}
           </Switch>
           {/*<Redirect from= "*" to="/error"/>*/}
-        </BrowserRouter>
-      </MuiThemeProvider>  
+        </MuiThemeProvider> 
+      </BrowserRouter>
+      
       );
   }
 }
