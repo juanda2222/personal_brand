@@ -70,9 +70,8 @@ export default class App extends Component {
       <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <ReactNotification/>
-          
-          <Switch>
-            { GA.Init() && <GA.RouteTracker /> }         
+          {GA.Init() && <GA.RouteTracker /> }     
+          <Switch>     
             <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
             {/*<Route path="/projects" component={ProjectsScreen} />*/}
             <Route path="/contact" component={ContactScreen} />
