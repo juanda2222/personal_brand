@@ -89,6 +89,7 @@ const Project = props => {
 
                     <a href={website_url}
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <FaLaptopCode className="icon" />
 
@@ -99,6 +100,7 @@ const Project = props => {
 
                     <a href={source_url}
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <FaFileCode className="icon" />
                     </a>

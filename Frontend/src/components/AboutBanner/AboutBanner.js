@@ -38,15 +38,21 @@ const AboutBanner = props => {
                     
                     <div className="social_icons">
                         <a href={facebook_link} 
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaFacebookSquare className="icon"/>
                         </a>
                         <a href={instagram_link} 
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaInstagram className="icon"/>
                         </a>
                         <a href={twitter_link}  
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaTwitter className="icon" />
                             
                         </a>

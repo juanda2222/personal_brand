@@ -31,15 +31,21 @@ class IntroductionBanner extends Component {
                     <hr className="bar_style"/>
                     <div className="social_icons">
                         <a href={github_link} 
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaGithub className="icon"/>
                         </a>
                         <a href={behance_link} 
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaBehanceSquare className="icon"/>
                         </a>
                         <a href={linkedin_link}  
-                            target="_blank">
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
                             <FaLinkedinIn className="icon" />
                             
                         </a>

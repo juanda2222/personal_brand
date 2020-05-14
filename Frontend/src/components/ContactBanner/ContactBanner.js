@@ -183,15 +183,22 @@ class ContactBanner extends React.Component{
 					</p>
 					<div className="social_icons">
                         <a href={pageInfo.english.github_link} 
-                            target="_blank">
+                            target="_blank"
+							rel="noopener noreferrer"
+							>
                             <FaGithub className="icon"/>
                         </a>
                         <a href={pageInfo.english.behance_link} 
-                            target="_blank">
+                            target="_blank"
+							rel="noopener noreferrer"
+							>
+
                             <FaBehanceSquare className="icon"/>
                         </a>
                         <a href={pageInfo.english.linkedin_link}  
-                            target="_blank">
+                            target="_blank"
+							rel="noopener noreferrer"
+							>
                             <FaLinkedinIn className="icon" />
                             
                         </a>

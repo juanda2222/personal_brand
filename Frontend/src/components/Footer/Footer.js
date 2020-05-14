@@ -39,7 +39,9 @@ const Footer = props => {
                     
                     <a href={page_info.english.issues_link} 
                         target="_blank"
-                        alt="loading..">
+                        alt="loading.."
+                        rel="noopener noreferrer"
+                        >
                     <p>
                         Report issue
                     </p></a> 
@@ -57,17 +59,23 @@ const Footer = props => {
                     <hr className="blue_bar"/>
                     <a href={page_info.english.instagram_link} 
                         target="_blank"
-                        alt="loading.."><p>
+                        alt="loading.."
+                        rel="noopener noreferrer"
+                        ><p>
                         Instagram
                     </p></a> 
                     <a href={page_info.english.facebook_link} 
                         target="_blank"
-                        alt="loading.."><p>
+                        alt="loading.."
+                        rel="noopener noreferrer"
+                        ><p>
                         Facebook
                     </p></a> 
                     <a href={page_info.english.twitter_link} 
                         target="_blank"
-                        alt="loading.."><p>
+                        alt="loading.."
+                        rel="noopener noreferrer"
+                        ><p>
                         Twitter
                     </p></a> 
                 </div>
