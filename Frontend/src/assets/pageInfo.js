@@ -20,7 +20,7 @@ const pageInfo = {
         contact_me_text1: "Text me through social media",
         contact_me_text2: "Send me an email",
 
-        resumee_file_url:"https://storage.googleapis.com/general-public-files/portfolio/Juan%20David%20-%20English.pdf",
+        resumee_file_url:"https://storage.googleapis.com/personal_brand_public_files/Juan%20David%20-%20English.pdf",
     }
     
 }

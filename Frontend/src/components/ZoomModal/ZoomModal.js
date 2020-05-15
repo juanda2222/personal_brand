@@ -1,6 +1,8 @@
 
 
-import React from 'react';
+import React, {
+//  useEffect
+} from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -17,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width:"100%",
-    height:"100%",
   }
 }));
 
@@ -31,8 +31,23 @@ const ZoomModal = (props) => {
   };
 
   const handleClose = () => {
-  setOpen(false);
+    setOpen(false);
   }; 
+
+  // Similar to componentDidMount and componentDidUpdate:
+  /*
+  useEffect(() => {
+    
+    console.log("mounted")
+    //add the listener when is mounted
+    window.addEventListener('scroll', ()=>{setOpen(false); console.log("dssdfdfdds")} )
+    
+    // remove the component when is closed:
+    return () => {
+      window.removeEventListener('scroll', ()=>{console.log("dssds"); setOpen(false);})
+    };
+  });
+  */
 
   return ( 
     <div>

@@ -77,58 +77,55 @@ const Project = props => {
     }
 
     return (
-        <div className="proyect_container">
+        <div className="proyect_container">            
+                <div className="project_text">
+                    <h3>{tittle}</h3>
+                    <div className={classes.root}>
+                        {hastags}
+                    </div>
+                    <p>{abstract_text}</p>
+                    <div className="image_bar">
 
-            <div className="project_text">
-                <h3>{tittle}</h3>
-                <div className={classes.root}>
-                    {hastags}
+                        <a href={website_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FaLaptopCode className="icon" />
+
+                        </a>
+                        <h3 style={{ textsize: "10px" }}>
+                            website
+                            </h3>
+
+                        <a href={source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FaFileCode className="icon" />
+                        </a>
+                        <h3>
+                            source
+                            </h3>
+                    </div>
                 </div>
-                <p>{abstract_text}</p>
-                <div className="image_bar">
+                <div className="project_image">
+                        {/*<Zoom>
+                            <img src={project_data.main_image} width="100%" alt="not found"/>
+                        </Zoom>*/}
+                        <ZoomModal>
+                            <img src={props.main_image} alt="asset not found" style={{width:"100%"}}/>
+                        </ZoomModal>
 
-                    <a href={website_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaLaptopCode className="icon" />
+                    {/*<div className="image">
 
-                    </a>
-                    <h3 style={{ textsize: "10px" }}>
-                        website
-                        </h3>
+                    </div>*/}
 
-                    <a href={source_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaFileCode className="icon" />
-                    </a>
-                    <h3>
-                        source
-                        </h3>
+                    <BeautyButton onClick={() => { set_redirect(true) }}>
+                        Learn More
+                    </BeautyButton>
+
+
                 </div>
-            </div>
-            <div className="project_image">
-                <div className="centered">
-                    {/*<Zoom>
-                        <img src={project_data.main_image} width="100%" alt="not found"/>
-                    </Zoom>*/}
-                    <ZoomModal>
-                        <img src={project_data.main_image} alt="not found" style={{width:"100%"}}/>
-                    </ZoomModal>
-                </div>
-
-                {/*<div className="image">
-
-                </div>*/}
-
-                <BeautyButton onClick={() => { set_redirect(true) }}>
-                    Learn More
-                </BeautyButton>
-
-
-            </div>
         </div>
 
     );

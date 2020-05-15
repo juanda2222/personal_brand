@@ -43,10 +43,11 @@
   
   display: flex;
   padding: 2px 7px 2px 7px;
+  /*float: "top";*/
   justify-content: space-evenly;
   align-items: center;
   background-color: #0C445C ;
-  height: 20%;
+  height: 53px;
   width: 90%;
   border-radius: 10px;
 }

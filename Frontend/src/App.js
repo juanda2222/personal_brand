@@ -26,7 +26,7 @@ import ErrorScreen from "./components/ErrorScreen.js";
 
 //material ui styling wrappers:
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import GA from './components/GoogleAnalytics/GoogleAnalytics'
+//import GA from './components/GoogleAnalytics/GoogleAnalytics'
 
 
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
@@ -68,7 +68,7 @@ export default class App extends Component {
     return (
       
       <BrowserRouter>
-        {GA.Init() && <GA.RouteTracker /> }     
+        {GA.Init() && <GA.RouteTracker />}
         <MuiThemeProvider theme={theme}>
           <ReactNotification/>
           <Switch>     

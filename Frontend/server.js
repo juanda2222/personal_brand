@@ -154,7 +154,8 @@ if (process.env["PRODUCTION"] === "true"){
   //dirname is the path of the current file
   app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
   app.use(express.static(path.join(__dirname, 'build')));
-
+  //app.use('/Frontend/', express.static(path.join(__dirname, 'build')));
+  
   app.get('*', function (req, res) {
     console.log("-> Page")
 
