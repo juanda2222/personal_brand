@@ -1,54 +1,29 @@
 
 
 
-import screen1 from "./screen1.jpeg";
-import screen2 from "./screen2.jpeg"
-import screen3 from "./screen3.jpeg"
-import screen4 from "./screen4.jpeg"
-import screen5 from "./screen5.jpeg"
-import screen6 from "./screen6.jpeg"
-import diagram from "./diagram.png"
-import pic from "./pic.png"
+import screen1 from "./screen1.png";
+import screen2 from "./screen2.png"
+import screen3 from "./screen3.png"
 
 const project_data = {
-    tittle:"IOT House Manager App",
-    source:"https://github.com/juanda2222/user_manager",
-    website:"https://github.com/juanda2222/user_manager",
-    abstract:"An application created using React Native and rest services in Google Cloud. The application uses Google Sign in and it connects to the data collected on a SQL server hosted on Google Cloud. The application can control binary actuators connected to the backend through mqtt and can display on real time data reported to the server",
-    hashtags:["node", "react-native", "sql", "gcloud", "mqtt"],
+    tittle:"AI and ultrasonic waves for object recognition",
+    source:"https://github.com/juanda2222/object_detection_instrumentation",
+    website:"https://storage.cloud.google.com/personal_brand_public_files/instrumentacion%20-%20dsp.pdf",
+    abstract:"This application uses artificial intelligence and probabilistic analysis to recognize one of the three objects used to train the neural network. The information of the object is acquired through a microcontroller and an array of analogs ultrasonic sensors",
+    hashtags:["python", "ai", "pyside", "arduino", "serial"],
     main_image:screen2,
     images:[
         {
-            caption:"Measure screen of the application", 
+            caption:"The training screen and the visualization of every input channel", 
             image:screen1
         },
         {
-            caption:"Introduction screen of the app", 
+            caption:"The training screen before a training sequence", 
             image:screen2
         },
         {
-            caption:"Control screen of the app", 
+            caption:"The detection screen and the mixture of every input channel for the current object", 
             image:screen3
-        },
-        {
-            caption:"Side Menu", 
-            image:screen4
-        },
-        {
-            caption:"Home screen", 
-            image:screen5
-        },
-        {
-            caption:"Error screen", 
-            image:screen6
-        },
-        {
-            caption:"General diagram of the functional components of the system", 
-            image:diagram
-        },
-        {
-            caption:"Real case scenario of the System", 
-            image:pic
         }
     ]
 }

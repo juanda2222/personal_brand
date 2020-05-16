@@ -11,6 +11,7 @@ import device_monitoring_data from "../../assets/projects/device_monitoring/data
 import iot_book_data from "../../assets/projects/iot_book/data"
 import house_manager from "../../assets/projects/house_manager/data"
 import iot_gcloud from "../../assets/projects/iot_gcloud/data"
+import ai_object_detection from "../../assets/projects/ai_object_detection/data"
 
 const ProjectsBanner = props => {
     return (    
@@ -53,6 +54,14 @@ const ProjectsBanner = props => {
                 hastags_vec = {iot_gcloud.hashtags}
                 tittle = {iot_gcloud.tittle}
                 main_image = {iot_gcloud.main_image}
+                />
+            <Project className="project" 
+                project_source = {ai_object_detection.source}
+                project_website = {ai_object_detection.website}
+                abstract = {ai_object_detection.abstract}
+                hastags_vec = {ai_object_detection.hashtags}
+                tittle = {ai_object_detection.tittle}
+                main_image = {ai_object_detection.main_image}
                 />
         </div>
     </div>
