@@ -18,7 +18,7 @@ import ZoomModal from "../ZoomModal/ZoomModal.js"
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+//import useMediaQuery from '@material-ui/core/useMediaQuery';
 //import Box from '@material-ui/core/Box'
 
 
@@ -129,14 +129,14 @@ const Project = props => {
 }
 
 
-const track_wrapper = props => {
-
-    return (
-        <TrackVisibility>
-            <Project {...props}/>
-        </TrackVisibility>
-    )
-}
+//const track_wrapper = props => {
+//
+//    return (
+//        <TrackVisibility>
+//            <Project {...props}/>
+//        </TrackVisibility>
+//    )
+//}
 
 
 export default Project;

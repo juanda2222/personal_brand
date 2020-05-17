@@ -12,7 +12,6 @@
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "googleapis": "^49.0.0",
-    "nodemailer": "^6.4.6",
     "react": "^16.4.1",
     "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.4.1",
@@ -21,7 +20,6 @@
     "react-icons": "^3.9.0",
     "react-loading": "^2.0.3",
     "react-notifications-component": "^2.4.0",
-    "react-on-screen": "^2.1.1",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.1"
