@@ -1,11 +1,9 @@
-var nodemailer = require('nodemailer');
+
 
 const fs = require('fs');
 const path = require("path")
 
-
-const readline = require('readline');
-const {google} = require('googleapis');
+//const {google} = require('googleapis');
 
 const {Storage} = require('@google-cloud/storage');
 

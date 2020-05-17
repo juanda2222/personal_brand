@@ -4,15 +4,13 @@ import React, { useState } from "react"
 import "./Project.css"
 import BeautyButton from '../Buttons/BeautyButton.js';
 import project_data from "../../assets/projects/device_monitoring/data"
+import ZoomModal from "../ZoomModal/ZoomModal.js"
+//import ZoomImage from "../ZoomImage/ZoomImage.js"
+
 
 import { Redirect } from 'react-router-dom';
 import { FaFileCode, FaLaptopCode } from 'react-icons/fa';
-import TrackVisibility from 'react-on-screen';
-
-
-//import ZoomImage from "../ZoomImage/ZoomImage.js"
-import ZoomModal from "../ZoomModal/ZoomModal.js"
-
+//import TrackVisibility from 'react-on-screen';
 
 
 import Chip from '@material-ui/core/Chip';
