@@ -96,7 +96,7 @@ div.project_text .hashtags > * {
 @media (max-width: 620px) {
   .proyect_container{grid-template: "text" "image";}
   .project_text{padding: 12% 8% 2% 8%;}
-  div.project_text .hashtags {display:flex; justify-content: center;}
+  div.project_text .hashtags {text-align: center;}
   .project_image{padding: 4% 8% 12% 8%;}
   .project_text h3 {text-align: center;}
   .project_text p{text-align: center;}
