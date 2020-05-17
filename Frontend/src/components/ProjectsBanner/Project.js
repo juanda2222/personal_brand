@@ -7,6 +7,7 @@ import project_data from "../../assets/projects/device_monitoring/data"
 
 import { Redirect } from 'react-router-dom';
 import { FaFileCode, FaLaptopCode } from 'react-icons/fa';
+import TrackVisibility from 'react-on-screen';
 
 
 //import ZoomImage from "../ZoomImage/ZoomImage.js"
@@ -17,19 +18,13 @@ import ZoomModal from "../ZoomModal/ZoomModal.js"
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 //import Box from '@material-ui/core/Box'
 
 
+
 const useStyles = makeStyles((theme) => ({
-    root: {
-        marginTop:"18px",
-        display: 'flex',
-        justifyContent: 'left',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.3),
-        }
-    }, custom_color: {
+    custom_color: {
         color: "#DDDDDD",
         borderColor: "rgb(29, 125, 160)",
         zIndex:1,
@@ -42,13 +37,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-
 const Project = props => {
-
+    
     const classes = useStyles();
 
     //react hook to the redirect state
     const [redirect, set_redirect] = useState(false)
+
+
+    if (redirect) {
+        return <Redirect push to="/projects" />;
+    }
 
     let source_url = props.project_source ? props.project_source : project_data.source;
     let website_url = props.project_website ? props.project_website : project_data.website;
@@ -72,15 +71,13 @@ const Project = props => {
             />)
     }) //creaate the hashtags if the property is not empty
 
-    if (redirect) {
-        return <Redirect push to="/projects" />;
-    }
+    const wrapper_class = props.isVisible ? "proyect_container flip-in-hor-bottom" : "proyect_container"
 
     return (
-        <div className="proyect_container">            
+            <div className = {wrapper_class}>            
                 <div className="project_text">
                     <h3>{tittle}</h3>
-                    <div className={classes.root}>
+                    <div className="hashtags">
                         {hastags}
                     </div>
                     <p>{abstract_text}</p>
@@ -113,7 +110,7 @@ const Project = props => {
                             <img src={project_data.main_image} width="100%" alt="not found"/>
                         </Zoom>*/}
                         <ZoomModal>
-                            <img src={props.main_image} alt="asset not found" style={{width:"100%"}}/>
+                            <img src={props.main_image} alt="asset not found" />
                         </ZoomModal>
 
                     {/*<div className="image">
@@ -126,10 +123,21 @@ const Project = props => {
 
 
                 </div>
-        </div>
-
+            </div>
+        
     );
 }
+
+
+const track_wrapper = props => {
+
+    return (
+        <TrackVisibility>
+            <Project {...props}/>
+        </TrackVisibility>
+    )
+}
+
 
 export default Project;
 

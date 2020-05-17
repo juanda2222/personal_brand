@@ -13,6 +13,8 @@ import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
 class IntroductionBanner extends Component {
 
+    
+
     render() {
         let header1 = this.props.h1 ? this.props.h1 : pageInfo.english.name
         let text1 = this.props.h2 ? this.props.text1 : pageInfo.english.short_introduction

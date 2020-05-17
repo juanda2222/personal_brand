@@ -7,14 +7,23 @@
 }
 
 
-
-
 .project_text {
   padding: 8% 2% 8% 10%;
   
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+
+
+
+div.project_text .hashtags {
+  margin-top: 18px;
+}
+div.project_text .hashtags > * {
+  margin: 3px;
 }
 
 
@@ -87,6 +96,7 @@
 @media (max-width: 620px) {
   .proyect_container{grid-template: "text" "image";}
   .project_text{padding: 12% 8% 2% 8%;}
+  div.project_text .hashtags {justify-content: center;}
   .project_image{padding: 4% 8% 12% 8%;}
   .project_text h3 {text-align: center;}
   .project_text p{text-align: center;}

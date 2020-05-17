@@ -14,12 +14,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    //width:"100%",
+    //overflow:"auto",
+    //objectFit: "scale-down",
+    objectFit: "contain",
   },
-  zoomed:{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
 }));
 
 const ZoomModal = (props) => {
@@ -51,7 +50,7 @@ const ZoomModal = (props) => {
 
   return ( 
     <div>
-      <div onClick={handleOpen}>
+      <div className ="centered" onClick={handleOpen}>
         {props.children} 
       </div>
       <Modal
@@ -62,17 +61,14 @@ const ZoomModal = (props) => {
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
+        onClick={handleClose}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        <Fade in={open}>
-          <div 
-            className={classes.zoomed}  
-            onClick={handleClose}>
+        <Fade style={{maxWidth:"100%", maxHeight:"100%"}} in={open}>
             {props.children} 
-          </div>
-        </Fade>
+        </Fade> 
       </Modal>
     </div>
   );

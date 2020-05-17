@@ -11,7 +11,7 @@ import diagram from "./diagram.png"
 import pic from "./pic.png"
 
 const project_data = {
-    tittle:"ObjectAi and ultrasonic",
+    tittle:"IOT monitoring Android and IOS app",
     source:"https://github.com/juanda2222/user_manager",
     website:"https://github.com/juanda2222/user_manager",
     abstract:"An application created using React Native and rest services in Google Cloud. The application uses Google Sign in and it connects to the data collected on a SQL server hosted on Google Cloud. The application can control binary actuators connected to the backend through mqtt and can display on real time data reported to the server",
