@@ -1,5 +1,5 @@
 
-import React from "react"
+import React, {useState, useEffect} from "react"
 import "./ProjectsBanner.css"
 
 
@@ -9,11 +9,49 @@ import page_info from "../../assets/pageInfo"
 
 import device_monitoring_data from "../../assets/projects/device_monitoring/data"
 import iot_book_data from "../../assets/projects/iot_book/data"
-import house_manager from "../../assets/projects/house_manager/data"
-import iot_gcloud from "../../assets/projects/iot_gcloud/data"
-import ai_object_detection from "../../assets/projects/ai_object_detection/data"
+import house_manager_data from "../../assets/projects/house_manager/data"
+import iot_gcloud_data from "../../assets/projects/iot_gcloud/data"
+import ai_object_detection_data from "../../assets/projects/ai_object_detection/data"
+
+const get_home_projects = () => {
+
+    //Get the most popular projects using the server
+
+    return [
+        device_monitoring_data,
+        iot_book_data,
+        house_manager_data,
+        iot_gcloud_data,
+        ai_object_detection_data,
+    ]
+}
 
 const ProjectsBanner = props => {
+
+    const [ projects_components, set_projects_components ] = useState(null)
+
+
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
+        
+        // Get the most popular projects:
+        var projects = get_home_projects()
+        var projects_components = projects.map((project_obj, index) => { 
+            return <Project className="project" 
+                key = {index}
+                project_source = {project_obj.source}
+                project_website = {project_obj.website}
+                abstract = {project_obj.abstract}
+                hastags_vec = {project_obj.hashtags}
+                tittle = {project_obj.tittle}
+                images_vec = {project_obj.images}
+                image_index = {project_obj.prev_image_index}
+                />
+         })
+        set_projects_components(projects_components)
+        return () => {/*cleanup*/}
+    }, []);
+
     return (    
     <div>
         <span id="projects_banner_pointer"></span>
@@ -23,46 +61,7 @@ const ProjectsBanner = props => {
                 <hr className="bar_style"/>
                 <p>{page_info.english.projects_text}</p>
             </div>
-            <Project className="project" 
-                project_source = {device_monitoring_data.source}
-                project_website = {device_monitoring_data.website}
-                abstract = {device_monitoring_data.abstract}
-                hastags_vec = {device_monitoring_data.hashtags}
-                tittle = {device_monitoring_data.tittle}
-                main_image = {device_monitoring_data.main_image}
-                />
-            <Project className="project" 
-                project_source = {iot_book_data.source}
-                project_website = {iot_book_data.website}
-                abstract = {iot_book_data.abstract}
-                hastags_vec = {iot_book_data.hashtags}
-                tittle = {iot_book_data.tittle}
-                main_image = {iot_book_data.main_image}
-                />
-            <Project className="project" 
-                project_source = {house_manager.source}
-                project_website = {house_manager.website}
-                abstract = {house_manager.abstract}
-                hastags_vec = {house_manager.hashtags}
-                tittle = {house_manager.tittle}
-                main_image = {house_manager.main_image}
-                />
-            <Project className="project" 
-                project_source = {iot_gcloud.source}
-                project_website = {iot_gcloud.website}
-                abstract = {iot_gcloud.abstract}
-                hastags_vec = {iot_gcloud.hashtags}
-                tittle = {iot_gcloud.tittle}
-                main_image = {iot_gcloud.main_image}
-                />
-            <Project className="project" 
-                project_source = {ai_object_detection.source}
-                project_website = {ai_object_detection.website}
-                abstract = {ai_object_detection.abstract}
-                hastags_vec = {ai_object_detection.hashtags}
-                tittle = {ai_object_detection.tittle}
-                main_image = {ai_object_detection.main_image}
-                />
+            {projects_components}
         </div>
     </div>
     );

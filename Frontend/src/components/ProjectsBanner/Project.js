@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import "./Project.css"
 import BeautyButton from '../Buttons/BeautyButton.js';
 import project_data from "../../assets/projects/device_monitoring/data"
-import ZoomModal from "../ZoomModal/ZoomModal.js"
+//import ZoomModal from "../ZoomModal/ZoomModal.js"
 //import ZoomImage from "../ZoomImage/ZoomImage.js"
 
 
@@ -19,6 +19,8 @@ import { makeStyles } from '@material-ui/core/styles';
 //import useMediaQuery from '@material-ui/core/useMediaQuery';
 //import Box from '@material-ui/core/Box'
 
+import ModalImageSwiper from "../ModalImageSwiper/ModalImageSwiper"
+import ImageSwiper from "../ImageSwiper/ImageSwiper"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +54,7 @@ const Project = props => {
     let abstract_text = props.abstract ? props.abstract : project_data.abstract
     let hastags_vec = props.hastags_vec ? props.hastags_vec : project_data.hashtags
     let tittle = props.tittle ? props.tittle : project_data.tittle
+    let images_vec = props.images_vec ? props.images_vec : project_data.images
     const hastags = hastags_vec.map((value, index) => {
 
         return (
@@ -104,22 +107,13 @@ const Project = props => {
                     </div>
                 </div>
                 <div className="project_image">
-                        {/*<Zoom>
-                            <img src={project_data.main_image} width="100%" alt="not found"/>
-                        </Zoom>*/}
-                        <ZoomModal>
-                            <img src={props.main_image} alt="asset not found" />
-                        </ZoomModal>
-
-                    {/*<div className="image">
-
-                    </div>*/}
-
+                    <ImageSwiper 
+                        image_vector = {images_vec} 
+                        init_step = {props.image_index}
+                        />
                     <BeautyButton onClick={() => { set_redirect(true) }}>
                         Learn More
                     </BeautyButton>
-
-
                 </div>
             </div>
         

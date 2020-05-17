@@ -14,7 +14,7 @@ const project_data = {
     website:"https://datastudio.google.com/u/0/reporting/bd8feb78-fbd5-448a-9fad-d2996e5c28a8/page/2tELB",
     abstract:"The \"Devices monitoring\" app is an app that uses a web dashboard to monitor measurements of any device connected through the desktop application (Gateway). The dashboard is capable of delivering different type of statistical information such as average measurements and historical data. Any usage of the application is limited by Google’s authentication system and as the database several. For the current version the gateway can be integrated with any amount of Inelca’s biphasic counters.",
     hashtags:["python", "gcloud", "iot", "firebase", "bigquery"],
-    main_image:image4,
+    prev_image_index:3,
     images:[
         {
             caption:"Screenshot of the desktop aplication. The current tab displays a graph of the adquired data of the selected Inecla device", 

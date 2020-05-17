@@ -14,7 +14,7 @@ const project_data = {
     website:"google.com",
     abstract:"The house manager is a desktop application for single computer boards such as Raspberry’s. It controls automation hardware and connects to a Inelca’s electric meter for electric consumption. Also, it reports every event to a backend using Mqtts an Https requests",
     hashtags:["iot", "python", "mqtt", "https", "gcloud"],
-    main_image:screen2,
+    prev_image_index:1,
     images:[
         {
             caption:"Home screen of the app", 

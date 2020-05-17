@@ -11,7 +11,7 @@ const project_data = {
     website:"https://storage.cloud.google.com/personal_brand_public_files/instrumentacion%20-%20dsp.pdf",
     abstract:"This application uses artificial intelligence and probabilistic analysis to recognize one of the three objects used to train the neural network. The information of the object is acquired through a microcontroller and an array of analogs ultrasonic sensors",
     hashtags:["python", "ai", "pyside", "arduino", "serial"],
-    main_image:screen2,
+    prev_image_index:1,
     images:[
         {
             caption:"The training screen and the visualization of every input channel", 

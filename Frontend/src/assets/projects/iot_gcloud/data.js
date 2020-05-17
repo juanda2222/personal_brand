@@ -16,7 +16,7 @@ const project_data = {
     website:"https://github.com/juanda2222/user_manager",
     abstract:"An application created using React Native and rest services in Google Cloud. The application uses Google Sign in and it connects to the data collected on a SQL server hosted on Google Cloud. The application can control binary actuators connected to the backend through mqtt and can display on real time data reported to the server",
     hashtags:["node", "react-native", "sql", "gcloud", "mqtt"],
-    main_image:screen2,
+    prev_image_index:1,
     images:[
         {
             caption:"Measure screen of the application", 
