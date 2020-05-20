@@ -26,7 +26,7 @@ import Fade from '@material-ui/core/Fade';
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const prev_image_path =  props.image_vector[props.preview_image_index].image
+    const prev_image_path =  props.image_vector[props.init_step].image
   
     const handleOpen = () => {
       setOpen(true);
@@ -57,8 +57,6 @@ import Fade from '@material-ui/core/Fade';
           <img src={prev_image_path} alt="asset not found" />
         </div>
         <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
           className={classes.modal}
           open={open}
           onClose={handleClose}
@@ -68,7 +66,13 @@ import Fade from '@material-ui/core/Fade';
             timeout: 500,
           }}
         >
-          <Fade style={{maxWidth:"100%", maxHeight:"100%"}} in={open}>
+          <Fade style={{
+            flex:1, 
+            justifyContent:"center",
+            alignItems:"center",
+            maxWidth:"100%", 
+            maxHeight:"100%"}} in={open}>
+
             <ImageSwiper 
               image_vector = {props.image_vector}
               init_step = {props.init_step}

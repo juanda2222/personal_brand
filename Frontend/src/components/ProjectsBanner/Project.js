@@ -107,7 +107,7 @@ const Project = props => {
                     </div>
                 </div>
                 <div className="project_image">
-                    <ImageSwiper 
+                    <ModalImageSwiper 
                         image_vector = {images_vec} 
                         init_step = {props.image_index}
                         />

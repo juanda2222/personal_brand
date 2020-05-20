@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     color:"#eeeeee",
     alignItems: 'center',
-    paddingTop:"8px",
-    paddingBottom:"8px",
+    paddingTop:"12px",
+    paddingBottom:"12px",
     paddingLeft: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
   },
@@ -90,20 +90,27 @@ const ImageSwiper = (props) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div >
       <Paper square elevation={0} className={classes.header}>
         <Typography>{steps_vector[activeStep].caption}</Typography>
       </Paper>
       <AutoPlaySwipeableViews
+        style={{ flex:1, height:"300px" }}
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x' /* this is for languaje support */}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
+        interval = {4000}
+        autoplay = {false}
       >
         {steps_vector.map((step, index) => (
-          <div key={step.caption}>
+          <div key={step.caption}
+          style={{maxWidth:"100%", maxHeight:"100%"}} >
             {Math.abs(activeStep - index) <= 2 ? (
-              <img className={classes.img} src={step.image} alt={step.caption} />
+              <img 
+                style={{borderRadius:"0px", maxWidth:"100%", maxHeight:"100%"}} 
+                //className={classes.img} 
+                src={step.image} alt={step.caption} />
             ) : null}
           </div>
         ))}
@@ -115,7 +122,7 @@ const ImageSwiper = (props) => {
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button style={{color:"#eeeeee"}} size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
             {theme.direction === 'rtl' ? <IoIosArrowBack /> : <IoIosArrowForward/> /* this is for languaje support */}
           </Button>

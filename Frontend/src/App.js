@@ -44,7 +44,7 @@ const theme = createMuiTheme({
       main: '#0C445C'
     },
     background:{
-      default:"#111111"
+      default:"#222222"
     },
     //text:{
     //  default:"#eeeeee"

@@ -3,7 +3,7 @@
 const pageInfo = {
     english:{
         name:"Juan David Ramirez V.",
-        short_introduction:"Developer and tech hobbyst with self learning habbits and leadership capabilitys. 1+ years experience. Direct responsible for successfully launch end to end applications for 3 clients.",
+        short_introduction:"Electronic engineer, developer, and tech hobbyst with self learning habbits and leadership capabilitys. More than one year of experience and direct responsible for successfully launch end to end applications for 3 clients.",
         
         issues_link:"https://github.com/juanda2222/personal_brand",
 
@@ -21,6 +21,7 @@ const pageInfo = {
         contact_me_text2: "Send me an email",
 
         resumee_file_url:"https://storage.googleapis.com/personal_brand_public_files/Juan%20David%20-%20English.pdf",
+        aws_text:"",
     }
     
 }
