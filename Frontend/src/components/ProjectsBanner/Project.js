@@ -20,7 +20,6 @@ import { makeStyles } from '@material-ui/core/styles';
 //import Box from '@material-ui/core/Box'
 
 import ModalImageSwiper from "../ModalImageSwiper/ModalImageSwiper"
-import ImageSwiper from "../ImageSwiper/ImageSwiper"
 
 
 const useStyles = makeStyles((theme) => ({

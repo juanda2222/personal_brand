@@ -1,7 +1,5 @@
 
-import React, {
-//  useEffect
-} from 'react';
+import React from 'react';
 
 import ImageSwiper from "../ImageSwiper/ImageSwiper"
 
@@ -35,21 +33,7 @@ import Fade from '@material-ui/core/Fade';
     const handleClose = () => {
       setOpen(false);
     }; 
-  
-    // Similar to componentDidMount and componentDidUpdate:
-    /*
-    useEffect(() => {
-      
-      console.log("mounted")
-      //add the listener when is mounted
-      window.addEventListener('scroll', ()=>{setOpen(false); console.log("dssdfdfdds")} )
-      
-      // remove the component when is closed:
-      return () => {
-        window.removeEventListener('scroll', ()=>{console.log("dssds"); setOpen(false);})
-      };
-    });
-    */
+
   
     return ( 
       <div>
@@ -74,6 +58,7 @@ import Fade from '@material-ui/core/Fade';
             maxHeight:"100%"}} in={open}>
 
             <ImageSwiper 
+              onImageClicked={handleClose}
               image_vector = {props.image_vector}
               init_step = {props.init_step}
               />

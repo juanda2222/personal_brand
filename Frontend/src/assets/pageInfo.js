@@ -21,7 +21,7 @@ const pageInfo = {
         contact_me_text2: "Send me an email",
 
         resumee_file_url:"https://storage.googleapis.com/personal_brand_public_files/Juan%20David%20-%20English.pdf",
-        aws_text:"",
+        aws_text:"I want to expand my experience to the AWS services. Plus, ",
     }
     
 }

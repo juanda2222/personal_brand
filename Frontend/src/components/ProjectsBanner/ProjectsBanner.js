@@ -13,15 +13,16 @@ import house_manager_data from "../../assets/projects/house_manager/data"
 import iot_gcloud_data from "../../assets/projects/iot_gcloud/data"
 import ai_object_detection_data from "../../assets/projects/ai_object_detection/data"
 
+
 const get_home_projects = () => {
 
     //Get the most popular projects using the server
 
     return [
-        device_monitoring_data,
-        iot_book_data,
         house_manager_data,
+        device_monitoring_data,
         iot_gcloud_data,
+        iot_book_data,
         ai_object_detection_data,
     ]
 }

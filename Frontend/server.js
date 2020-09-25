@@ -62,6 +62,7 @@ const app = express();
 
 // Configure the handlers used by both development and production 
 app.use(cors({
+  credentials:true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   origin: (origin, callback) => {
     // allow requests with no origin (like mobile apps or curl requests)

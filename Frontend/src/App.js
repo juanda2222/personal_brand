@@ -26,7 +26,6 @@ import ErrorScreen from "./components/ErrorScreen.js";
 //material ui styling wrappers:
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import GA from './components/GoogleAnalytics/GoogleAnalytics'
-import { colors } from '@material-ui/core';
 
 
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
