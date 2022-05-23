@@ -14,6 +14,7 @@ import iot_gcloud_data from "../../assets/projects/iot_gcloud/data"
 import ai_object_detection_data from "../../assets/projects/ai_object_detection/data"
 import personal_portfolio from "../../assets/projects/portfolio_dev/data"
 import url_shortener from "../../assets/projects/url_shortener/data"
+import vissually from "../../assets/projects/vissually/data"
 
 
 const get_home_projects = () => {
@@ -21,6 +22,7 @@ const get_home_projects = () => {
     //Get the most popular projects using the server
 
     return [
+        vissually,
         url_shortener,
         personal_portfolio,
         house_manager_data,
