@@ -15,6 +15,7 @@ import ai_object_detection_data from "../../assets/projects/ai_object_detection/
 import personal_portfolio from "../../assets/projects/portfolio_dev/data"
 import url_shortener from "../../assets/projects/url_shortener/data"
 import vissually from "../../assets/projects/vissually/data"
+import cancilleria_redesign from "../../assets/projects/cancilleria_redesign/data"
 
 
 const get_home_projects = () => {
@@ -22,6 +23,7 @@ const get_home_projects = () => {
     //Get the most popular projects using the server
 
     return [
+        cancilleria_redesign,
         vissually,
         url_shortener,
         personal_portfolio,
