@@ -1,0 +1,27 @@
+# For a list of supported resources,
+# see https://github.com/GoogleCloudPlatform/deploymentmanager-samples/blob/master/google/resource-snippets/storage-v1/bucket.jinja
+
+
+# Copyright 2018 Google Inc. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+resources:
+- type: storage.v1.bucket
+  # name: secret-files-{{ properties['test_var'] }}
+  name: secret-files-{{ env["deployment"] }}
+  properties:
+    predefinedAcl: projectPrivate
+    projection: full
+    location: US
+    storageClass: STANDARD
