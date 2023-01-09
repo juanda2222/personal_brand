@@ -10,7 +10,7 @@ const project_data = {
     website:"https://storage.googleapis.com/personal_brand_public_files/Tesis%20-%20Iot%20-%20Espa%C3%B1ol.pdf",
     abstract:"A latex template for a thesis using the official Universidad del Valle format. The document will explain the process carried out to implement a client server model that communicates diﬀerent devices under the internet of things paradigm. The system consists mainly of 3 products: the backend product, a mobile and a desktop application.",
     hashtags:["latex", "text", "iot", "gcloud"],
-    main_image:mockup,
+    prev_image_index:0,
     images:[
         {
             caption:"Printed book", 

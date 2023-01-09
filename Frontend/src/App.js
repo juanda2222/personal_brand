@@ -1,9 +1,8 @@
 import React, { Component,  } from 'react';
 
 //import 'bootstrap/dist/css/bootstrap.min.css'; //bootstrap default ib
-//master test
 import './App.css';
-
+//dev change
 
 import {
   BrowserRouter,
@@ -43,6 +42,12 @@ const theme = createMuiTheme({
     secondary: {
       main: '#0C445C'
     },
+    background:{
+      default:"#222222"
+    },
+    //text:{
+    //  default:"#eeeeee"
+    //}
   }
 });
 

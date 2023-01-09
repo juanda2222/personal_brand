@@ -6,6 +6,7 @@
   "dependencies": {
     "@google-cloud/storage": "^4.7.0",
     "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
     "all": "^0.0.0",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
@@ -22,7 +23,9 @@
     "react-notifications-component": "^2.4.0",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-swipeable-views": "^0.13.9",
+    "react-swipeable-views-utils": "^0.14.0-alpha.0"
   },
   "scripts": {
     "start_production": "node server.js",

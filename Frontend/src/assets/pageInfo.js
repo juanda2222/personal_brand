@@ -3,7 +3,7 @@
 const pageInfo = {
     english:{
         name:"Juan David Ramirez V.",
-        short_introduction:"Developer and tech hobbyst with self learning habbits and leadership capabilitys. 1+ years experience. Direct responsible for successfully launch end to end applications for 3 clients.",
+        short_introduction:"Fullstack engineer, developer, and tech hobbyist specialized in backend with self learning habits and leadership capabilities. More than five years of experience and direct responsibility for successfully launching end to end applications for international clients including 60hertz, Dave, Instride.",
         
         issues_link:"https://github.com/juanda2222/personal_brand",
 
@@ -20,7 +20,7 @@ const pageInfo = {
         contact_me_text1: "Text me through social media",
         contact_me_text2: "Send me an email",
 
-        resumee_file_url:"https://storage.googleapis.com/personal_brand_public_files/Juan%20David%20-%20English.pdf",
+        resumee_file_url:"https://drive.google.com/file/d/1LnZjLj1gRYgkSyW0eQRepbN4tF-9EfzH/view?usp=sharing",
     }
     
 }
