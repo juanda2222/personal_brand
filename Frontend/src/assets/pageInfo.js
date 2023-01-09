@@ -15,7 +15,7 @@ const pageInfo = {
         instagram_link:"https://www.instagram.com/juanda_ra/",
         twitter_link:"https://twitter.com/JuanDav80657184",
         projects_text: "The projects published here are either personal or the result of a client’s request. To contact the team please refer directly to the GitHub team.",
-        about_me:"I am a Colombian electronic engineer with great passion for programing. I like to give all my heart at everything i do, and my hobbies are playing the guitar, dancing, and running.",
+        about_me:"I am a Colombian electronic engineer with great passion for programing. I like to give all my heart at everything i do. My hobbies are playing the guitar, dancing, and jogging.",
         Download_resumee_text: "Download Resumee",
         contact_me_text1: "Text me through social media",
         contact_me_text2: "Send me an email",
