@@ -38,7 +38,7 @@ steps:
    - 'portfolio'
    - '--image'
    - 'gcr.io/$PROJECT_ID/portfolio:$COMMIT_SHA'
-  #  - '--region'
-  #  - 'REGION'
+   - '--region'
+   - 'us-central1'
 images:
  - 'gcr.io/$PROJECT_ID/portfolio:$COMMIT_SHA'
