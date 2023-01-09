@@ -35,7 +35,7 @@ steps:
    args:
    - 'run'
    - 'deploy'
-   - 'portfolio'
+   - 'just-node-personal-page'
    - '--image'
    - 'gcr.io/$PROJECT_ID/portfolio:$COMMIT_SHA'
    - '--region'
