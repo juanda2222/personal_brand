@@ -55,7 +55,7 @@ const theme = createMuiTheme({
 export default class App extends Component {
 
   
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     // Don't call this.setState() here!
     this.state = {
