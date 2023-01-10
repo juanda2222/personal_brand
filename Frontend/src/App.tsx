@@ -71,22 +71,22 @@ export default class App extends Component {
   render() {
     
     return (
-      
-      <BrowserRouter>
-        {GA.Init() && <GA.RouteTracker />}
-        <MuiThemeProvider theme={theme}>
-          <ReactNotification/>
-          <Switch>     
-            <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
-            {/*<Route path="/projects" component={ProjectsScreen} />*/}
-            <Route path="/contact" component={ContactScreen} />
-            <Route path="/donate" component={DonateScreen} />
-            <Route path="/*" component={ErrorScreen}/>
-          </Switch>
-          {/*<Redirect from= "*" to="/error"/>*/}
-        </MuiThemeProvider> 
-      </BrowserRouter>
-      
+      <React.Fragment>
+        <BrowserRouter>
+          {GA.Init() && <GA.RouteTracker />}
+          <MuiThemeProvider theme={theme}>
+            <ReactNotification/>
+            <Switch>     
+              <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
+              {/*<Route path="/projects" component={ProjectsScreen} />*/}
+              <Route path="/contact" component={ContactScreen} />
+              <Route path="/donate" component={DonateScreen} />
+              <Route path="/*" component={ErrorScreen}/>
+            </Switch>
+            {/*<Redirect from= "*" to="/error"/>*/}
+          </MuiThemeProvider> 
+        </BrowserRouter>
+      </React.Fragment>
       );
   }
 }
