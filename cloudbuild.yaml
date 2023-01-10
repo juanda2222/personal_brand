@@ -35,10 +35,11 @@ steps:
    args:
    - 'run'
    - 'deploy'
-   - 'portfolio'
+   - 'just-node-personal-page'
    - '--image'
    - 'gcr.io/$PROJECT_ID/portfolio:$COMMIT_SHA'
    - '--region'
-   - 'REGION'
+   - 'us-central1'
+   - --max-instances=10
 images:
  - 'gcr.io/$PROJECT_ID/portfolio:$COMMIT_SHA'
