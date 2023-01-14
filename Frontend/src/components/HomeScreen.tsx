@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 
 import Menu from './Menu/Menu.js';
 import Footer from "./Footer/Footer.js"
 
 //import Section from './Section/test.js';
-import IntroductionBanner from './IntroductionBanner/IntroductionBanner';
-import ProjectsBanner from './ProjectsBanner/ProjectsBanner';
-import SkillsBanner from './SkillsBanner/SkillsBanner';
+import IntroductionBanner from './IntroductionBanner/IntroductionBanner.js';
+import ProjectsBanner from './ProjectsBanner/ProjectsBanner.js';
+import SkillsBanner from './SkillsBanner/SkillsBanner.js';
 import AboutBanner from "./AboutBanner/AboutBanner.js"
+import Chat from './Chat/Chat';
 
+export interface HomeScreenProps {
+  user: string
+}
 
-class HomeScreen extends Component {
+class HomeScreen extends React.Component<HomeScreenProps>  {
 
   render() {
 
@@ -23,8 +26,8 @@ class HomeScreen extends Component {
         <ProjectsBanner/>
         <AboutBanner/>
         <SkillsBanner/>
-        
         <Footer top_pointer_href={"#top_pointer"} />
+        <Chat/>
       </div>
       
     );

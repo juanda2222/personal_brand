@@ -15,7 +15,7 @@ import ReactNotification from 'react-notifications-component';
 import "../node_modules/react-notifications-component/dist/theme.css";
 import 'react-notifications-component/dist/theme.css'
 
-import HomeScreen from "./components/HomeScreen.js";
+import HomeScreen from "./components/HomeScreen";
 //import ProjectsScreen from "./components/ProjectsScreen.js";
 import DonateScreen from "./components/DonateScreen.js";
 import ContactScreen from "./components/ContactScreen.js"
