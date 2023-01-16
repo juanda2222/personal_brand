@@ -25,6 +25,7 @@ import ErrorScreen from "./components/ErrorScreen.js";
 
 //material ui styling wrappers:
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import GA from './components/GoogleAnalytics/GoogleAnalytics'
 
 
@@ -34,8 +35,9 @@ const domain = process.env.REACT_APP_PRODUCTION ==="true" ? "https://david.alfag
 const api_list = ["/ping"]
 
 // Create my own theme:
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
       main: '#1b6180'
     },
@@ -51,6 +53,23 @@ const theme = createMuiTheme({
   }
 });
 
+// for backwards compatibility
+const themeLegacy = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#1b6180'
+    },
+    secondary: {
+      main: '#0C445C'
+    },
+    background:{
+      default:"#222222"
+    },
+    //text:{
+    //  default:"#eeeeee"
+    //}
+  }
+})
 
 export default class App extends Component {
 
@@ -74,17 +93,19 @@ export default class App extends Component {
       <React.Fragment>
         <BrowserRouter>
           {GA.Init() && <GA.RouteTracker />}
-          <MuiThemeProvider theme={theme}>
-            <ReactNotification/>
-            <Switch>     
-              <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
-              {/*<Route path="/projects" component={ProjectsScreen} />*/}
-              <Route path="/contact" component={ContactScreen} />
-              <Route path="/donate" component={DonateScreen} />
-              <Route path="/*" component={ErrorScreen}/>
-            </Switch>
-            {/*<Redirect from= "*" to="/error"/>*/}
-          </MuiThemeProvider> 
+          <MuiThemeProvider theme={themeLegacy}>
+            <ThemeProvider theme={theme}>
+              <ReactNotification/>
+              <Switch>     
+                <Route path="/" render={() => <HomeScreen user={"user"} />} exact/>
+                {/*<Route path="/projects" component={ProjectsScreen} />*/}
+                <Route path="/contact" component={ContactScreen} />
+                <Route path="/donate" component={DonateScreen} />
+                <Route path="/*" component={ErrorScreen}/>
+                {/*<Redirect from= "*" to="/error"/>*/}
+              </Switch>
+            </ThemeProvider> 
+          </MuiThemeProvider>
         </BrowserRouter>
       </React.Fragment>
       );

@@ -1,6 +1,6 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { Paper } from "@material-ui/core";
+import Paper from '@mui/material/Paper';
 import { TextInput } from "./TextInput";
 import { MessageLeft, MessageRight } from "./ChatMessage";
 
@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     messagesBody: {
       width: "calc( 100% - 20px )",
       margin: 10,
+      // padding: "1rem",
       overflowY: "scroll",
       height: "calc( 100% - 80px )"
     }
@@ -45,8 +46,8 @@ export default function ChatWidget() {
   return (
     <div className={classes.container}>
       {/* <Paper className={classes.paper} zDepth={2}> */}
-      <Paper className={classes.paper} >
-        <Paper id="style-1" className={classes.messagesBody}>
+      <Paper className={classes.paper} elevation={4} >
+        <Paper id="style-1" className={classes.messagesBody} elevation={0} >
           <MessageLeft
             message="Hello i am David's bot!"
             timestamp="MM/DD 00:00"
