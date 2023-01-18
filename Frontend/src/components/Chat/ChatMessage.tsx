@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
 );
 
 
-export interface MessageLeftProps {
+export interface MessageProps {
   message: string,
   timestamp: string,
   photoURL: string,
@@ -127,7 +127,7 @@ export interface MessageLeftProps {
   avatarDisplay: boolean,
 }
 
-export const MessageLeft = (props: MessageLeftProps) => {
+export const MessageLeft = (props: MessageProps) => {
   const message = props.message ? props.message : "no message";
   const timestamp = props.timestamp ? props.timestamp : "";
   const photoURL = props.photoURL ? props.photoURL : "dummy.js";
@@ -155,15 +155,7 @@ export const MessageLeft = (props: MessageLeftProps) => {
   );
 };
 
-export interface MessageRightProps {
-  message: string,
-  timestamp: string,
-  photoURL: string,
-  displayName: string,
-  avatarDisplay: boolean,
-}
-
-export const MessageRight = (props: MessageRightProps) => {
+export const MessageRight = (props: MessageProps) => {
   const classes = useStyles();
   const message = props.message ? props.message : "no message";
   const timestamp = props.timestamp ? props.timestamp : "";
