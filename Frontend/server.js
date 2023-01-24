@@ -138,6 +138,13 @@ app.post('/contact/send_email', async (req, res) => {
   
 });
 
+app.post('/chat/message', async (req, res) => {
+  
+  await app_is_configured
+
+  return res.send({responseMessage: "this is a message from your favorite chat bot"});
+});
+
 //this is a test endpoint
 app.get('/ping', function (req, res) {
   console.log("-> Ping");
