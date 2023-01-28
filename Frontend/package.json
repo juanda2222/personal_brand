@@ -4,17 +4,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@google-cloud/secret-manager": "^4.2.0",
     "@google-cloud/storage": "^4.7.0",
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.4",
+    "@mui/styles": "^5.11.2",
     "all": "^0.0.0",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "googleapis": "^49.0.0",
+    "openai": "^3.1.0",
     "react": "^16.4.1",
     "react-async-script-loader": "^0.3.0",
+    "react-chat-elements": "^12.0.7",
     "react-dom": "^16.4.1",
     "react-ga": "^2.7.0",
     "react-google-recaptcha": "^2.0.1",
@@ -25,11 +33,13 @@
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.1",
     "react-swipeable-views": "^0.13.9",
-    "react-swipeable-views-utils": "^0.14.0-alpha.0"
+    "react-swipeable-views-utils": "^0.14.0-alpha.0",
+    "typescript": "^4.9.4"
   },
   "scripts": {
     "start_production": "node server.js",
     "test_ci": "cross-env CI=true react-scripts test",
+    "dev": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -46,5 +56,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-notifications-component": "^3.1.1",
+    "@types/react-router-dom": "^5.3.3",
+    "nodemon": "^2.0.20"
+  },
+  "resolutions": {
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0"
   }
 }

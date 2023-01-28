@@ -13,8 +13,7 @@ process.argv.slice(2).forEach(argument_pair => {
     process.env["PRODUCTION"] = pair[1]
   } 
 });
-console.log(">> Args received: ", args)
-console.log(">> Test env var", process.env["var"])
+
 */
 
 
@@ -31,7 +30,9 @@ const axios = require('axios');
 //custom modules:
 const Mail_Manager = require("./src/modules/mail_manager/Mail_manager_secure")
 const SecretsManager = require("./src/modules/CloudStorage/SecretsManager")
+const GPT3Manager = require("./src/modules/GPT3Manager/index.js")
 
+const gpt3Manager = new GPT3Manager()
 
 // constants:
 let SECRETS;
@@ -136,6 +137,13 @@ app.post('/contact/send_email', async (req, res) => {
   }
 
   
+});
+
+app.post('/chat/message', async (req, res) => {
+  const { messages } = req.body
+  const newMessage = await gpt3Manager.getMessage(messages)
+  
+  return res.send({responseMessage: newMessage});
 });
 
 //this is a test endpoint
