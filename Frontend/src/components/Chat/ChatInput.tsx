@@ -25,16 +25,20 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface ChatInputProps {
     onSend: (message: string) => void
+    disabled?: boolean
 }
 
 export const ChatInput = ({
-    onSend
+    onSend,
+    disabled = false
 }: ChatInputProps) => {
     const classes = useStyles();
 
     // manage state for the text input
     const [ messageString, setMessageString ] = useState('')
     const onSendCallback = useCallback(() => {
+        if (messageString == '') return
+        
         setMessageString('')
         onSend(messageString)
     }, [messageString, onSend])
@@ -65,6 +69,7 @@ export const ChatInput = ({
                 value={messageString}
                 onChange={handleMessageChange}
                 onKeyDown={handleKeyPressed}
+                disabled={disabled}
             />
             <Button variant="contained" color="primary" className={classes.button} onClick={onSendCallback}>
                 <SendIcon />

@@ -101,8 +101,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     orange: {
-      color: theme.palette.getContrastText(deepOrange[500]),
-      backgroundColor: deepOrange[500],
+      color: theme.palette.getContrastText(theme.palette.primary.main),
+      backgroundColor: theme.palette.primary.main,
       width: theme.spacing(4),
       height: theme.spacing(4)
     },

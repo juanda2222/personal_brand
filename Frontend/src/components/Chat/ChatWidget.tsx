@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import { ChatInput } from "./ChatInput";
 import ChatMessageList, { ChatMessageListElement } from "./ChatMessageList";
 import Axios from "axios";
+import robotIcon from "../../assets/robot-icon.webp"
 
 const port = process.env.REACT_APP_NODE_PORT ? process.env.REACT_APP_NODE_PORT : 1000
 const domain = process.env.REACT_APP_PRODUCTION==="true" ? "https://david.alfagenos.com": "http://localhost:" + port
@@ -44,27 +45,24 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
+const now = new Date()
+const formattedDateOnLoad = now.toLocaleDateString("en-US", {month: "2-digit", day: "2-digit"}) + " " + now.toLocaleTimeString("en-US", {hour: "2-digit", minute: "2-digit"});
+const initialMessage = {
+  messageType: "left" as const,
+  message: "Hello i am DaVoid! an accurate copy of david's speech. You can ask me anything, i will answer in representation of david",
+  timestamp: formattedDateOnLoad,
+  photoURL: robotIcon,
+  displayName: "DaVoid",
+  avatarDisplay: true,
+}
 
 export default function ChatWidget() {
 
   const classes = useStyles();
   const [messages, setMessages] = useState<ChatMessageListElement[]>([
-    {
-      messageType: "left" as const,
-      message: "Hello i am DaVoid! an accurate copy of david's speech",
-      timestamp: "MM/DD 00:00",
-      photoURL: "https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s: s96-c",
-      displayName: "Robot",
-      avatarDisplay: true,
-    },{
-      messageType: "left" as const,
-      message: "You can ask me anything . I will answer in representation of david",
-      timestamp: "MM/DD 00:00",
-      photoURL: "",
-      displayName: "",
-      avatarDisplay: false,
-    }
+    initialMessage
   ])
+  const [isLoadingChatResponse, setLoadingChatResponse] = useState(false)
   const handleSubmitMessage = async (messageText: string) => {
     const messagesForContext = messages.slice(2).map(messageData => messageData.message)
     let { data } = await Axios({
@@ -85,15 +83,17 @@ export default function ChatWidget() {
           messageType: "left" as const,
           message: responseMessage,
           timestamp: formattedDate,
-          photoURL: "",
+          photoURL: robotIcon,
           displayName: "DaVoid",
-          avatarDisplay: false,
+          avatarDisplay: true,
         }
       ]
     })
+    setLoadingChatResponse(false)
   }
 
   const addNewMessage = useCallback(async messageText => {
+    setLoadingChatResponse(true)
     setMessages(oldMessages => {
       const now = new Date()
       const formattedDate = now.toLocaleDateString("en-US", {month: "2-digit", day: "2-digit"}) + " " + now.toLocaleTimeString("en-US", {hour: "2-digit", minute: "2-digit"});
@@ -104,7 +104,7 @@ export default function ChatWidget() {
           message: messageText,
           timestamp: formattedDate,
           photoURL: "",
-          displayName: "",
+          displayName: "Guest",
           avatarDisplay: false,
         }
       ]
@@ -118,7 +118,7 @@ export default function ChatWidget() {
         <Paper id="style-1" className={classes.messagesBody} elevation={0} >
           <ChatMessageList messages={messages} />
         </Paper>
-        <ChatInput onSend={addNewMessage} />
+        <ChatInput onSend={addNewMessage} disabled={isLoadingChatResponse} />
       </Paper>
     </div>
   );
