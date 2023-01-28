@@ -17,7 +17,7 @@ ENV REACT_APP_NODE_PORT=8080
 COPY ./Frontend/package*.json ./Frontend/
 
 # Install production dependencies.
-RUN cd Frontend && npm install --only=production 
+RUN cd Frontend && npm install 
 
 # Copy local code to the container image.
 COPY ./Frontend ./Frontend/
