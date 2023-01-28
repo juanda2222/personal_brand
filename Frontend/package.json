@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@google-cloud/secret-manager": "^4.2.0",
     "@google-cloud/storage": "^4.7.0",
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
@@ -18,6 +19,7 @@
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "googleapis": "^49.0.0",
+    "openai": "^3.1.0",
     "react": "^16.4.1",
     "react-async-script-loader": "^0.3.0",
     "react-chat-elements": "^12.0.7",

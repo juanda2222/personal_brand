@@ -1,7 +1,7 @@
 import React from "react";
 import { MessageLeft, MessageRight, MessageProps } from "./ChatMessage";
 
-interface ChatMessageListElement extends MessageProps{
+export interface ChatMessageListElement extends MessageProps{
   messageType: "left" | "right"
 }
 
