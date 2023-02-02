@@ -14,7 +14,7 @@ __pycache__
 # from the node part of the app
 # dependencies
 Frontend/node_modules
-Frontend/yarn.lock
+# Frontend/yarn.lock
 Frontend/yarn-error.log
 
 # testing

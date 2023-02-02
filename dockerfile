@@ -1,6 +1,6 @@
 # Use the official lightweight Node.js 12 image.
 # https://hub.docker.com/_/node
-FROM node:12-slim
+FROM node:14-slim
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -15,9 +15,10 @@ ENV REACT_APP_NODE_PORT=8080
 # A wildcard is used to ensure both package.json AND package-lock.json are copied.
 # Copying this separately prevents re-running npm install on every code change.
 COPY ./Frontend/package*.json ./Frontend/
+COPY ./Frontend/yarn.lock ./Frontend/
 
 # Install production dependencies.
-RUN cd Frontend && npm install 
+RUN cd Frontend && yarn install 
 
 # Copy local code to the container image.
 COPY ./Frontend ./Frontend/
