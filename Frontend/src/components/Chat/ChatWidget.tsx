@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Paper from '@mui/material/Paper';
 import { ChatInput } from "./ChatInput";
@@ -59,6 +59,8 @@ const initialMessage = {
 export default function ChatWidget() {
 
   const classes = useStyles();
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [messages, setMessages] = useState<ChatMessageListElement[]>([
     initialMessage
   ])
@@ -112,13 +114,26 @@ export default function ChatWidget() {
     handleSubmitMessage(messageText)
   }, [])
 
+
+  useEffect(
+    function () {
+      const timer = setTimeout(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+        inputRef.current?.focus()
+      }, 300);
+      return () => clearTimeout(timer);
+    },
+    [messages]
+  )
+
   return (
     <div className={classes.container}>
       <Paper className={classes.paper} elevation={4} >
         <Paper id="style-1" className={classes.messagesBody} elevation={0} >
           <ChatMessageList messages={messages} />
+          <div ref={bottomRef} />
         </Paper>
-        <ChatInput onSend={addNewMessage} disabled={isLoadingChatResponse} />
+        <ChatInput onSend={addNewMessage} disabled={isLoadingChatResponse} inputRef={inputRef}/>
       </Paper>
     </div>
   );

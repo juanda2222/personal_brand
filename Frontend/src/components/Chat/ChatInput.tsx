@@ -26,11 +26,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export interface ChatInputProps {
     onSend: (message: string) => void
     disabled?: boolean
+    inputRef?: React.Ref<HTMLInputElement>
 }
 
 export const ChatInput = ({
     onSend,
-    disabled = false
+    disabled = false,
+    inputRef = null
 }: ChatInputProps) => {
     const classes = useStyles();
 
@@ -70,6 +72,8 @@ export const ChatInput = ({
                 onChange={handleMessageChange}
                 onKeyDown={handleKeyPressed}
                 disabled={disabled}
+                autoFocus
+                inputRef={inputRef}
             />
             <Button variant="contained" color="primary" className={classes.button} onClick={onSendCallback}>
                 <SendIcon />
