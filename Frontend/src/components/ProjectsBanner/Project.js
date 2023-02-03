@@ -13,7 +13,7 @@ import { FaFileCode, FaLaptopCode } from 'react-icons/fa';
 //import TrackVisibility from 'react-on-screen';
 
 
-import Chip from '@material-ui/core/Chip';
+import Chip from '@mui/material/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 //import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -23,12 +23,12 @@ import ModalImageSwiper from "../ModalImageSwiper/ModalImageSwiper"
 
 
 const useStyles = makeStyles((theme) => ({
-    custom_color: {
-        color: "#DDDDDD",
-        borderColor: "rgb(29, 125, 160)",
-        zIndex:1,
-        //backgroundColor: "#146E8E",
-    },
+    // custom_color: {
+    //     color: "#DDDDDD",
+    //     borderColor: "rgb(29, 125, 160)",
+    //     // zIndex:1,
+    //     backgroundColor: "#146E8E",
+    // },
     avatar: {
         backgroundColor: "#6fb7d1",
       }
@@ -61,7 +61,8 @@ const Project = props => {
                 key={index}
                 variant="outlined"
                 size="medium"
-                className={classes.custom_color}
+                // className={classes.custom_color}
+                // color="primary" 
                 avatar={<Avatar className={classes.avatar} >{value[0].toUpperCase()}</Avatar>}
                 label={"#" + value}
                 clickable
