@@ -6,7 +6,7 @@ const SecretsManager = require("../SecretManager");
 class GPT3Manager{
 
     constructor() {
-		this.setup()		
+		this.setup().catch(error => { console.error(error) })		
     }
 	setup = async () => {
 		const secret_api_key = await SecretsManager.getSecret('openai_api_key')
